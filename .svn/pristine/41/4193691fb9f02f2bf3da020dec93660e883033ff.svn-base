@@ -7,7 +7,6 @@
 //
 
 #import "CLAppDelegate.h"
-#import "CLMainViewCell.h"
 
 @implementation CLAppDelegate
 
