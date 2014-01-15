@@ -20,7 +20,7 @@
 		92DB1C2A187464D300EB695B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92DB1C28187464D300EB695B /* InfoPlist.strings */; };
 		92DB1C2C187464D300EB695B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DB1C2B187464D300EB695B /* main.m */; };
 		92DB1C30187464D300EB695B /* CLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DB1C2F187464D300EB695B /* CLAppDelegate.m */; };
-		92DB1C33187464D300EB695B /* цццюцшт2юст.п10.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DB1C31187464D300EB695B /* цццюцшт2юст.п10.storyboard */; };
+		92DB1C33187464D300EB695B /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DB1C31187464D300EB695B /* Main_iPhone.storyboard */; };
 		92DB1C36187464D300EB695B /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DB1C34187464D300EB695B /* Main_iPad.storyboard */; };
 		92DB1C39187464D300EB695B /* CLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DB1C38187464D300EB695B /* CLViewController.m */; };
 		92DB1C3B187464D300EB695B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92DB1C3A187464D300EB695B /* Images.xcassets */; };
@@ -67,7 +67,7 @@
 		92DB1C2D187464D300EB695B /* PogodaVTomske_v2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PogodaVTomske_v2-Prefix.pch"; sourceTree = "<group>"; };
 		92DB1C2E187464D300EB695B /* CLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLAppDelegate.h; sourceTree = "<group>"; };
 		92DB1C2F187464D300EB695B /* CLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLAppDelegate.m; sourceTree = "<group>"; };
-		92DB1C32187464D300EB695B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/цццюцшт2юст.п10.storyboard"; sourceTree = "<group>"; };
+		92DB1C32187464D300EB695B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		92DB1C35187464D300EB695B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		92DB1C37187464D300EB695B /* CLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLViewController.h; sourceTree = "<group>"; };
 		92DB1C38187464D300EB695B /* CLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLViewController.m; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 				92DB1C2E187464D300EB695B /* CLAppDelegate.h */,
 				92DB1C2F187464D300EB695B /* CLAppDelegate.m */,
 				92DB1C34187464D300EB695B /* Main_iPad.storyboard */,
-				92DB1C31187464D300EB695B /* цццюцшт2юст.п10.storyboard */,
+				92DB1C31187464D300EB695B /* Main_iPhone.storyboard */,
 				92DB1C37187464D300EB695B /* CLViewController.h */,
 				92DB1C38187464D300EB695B /* CLViewController.m */,
 				926C89A41876A0B300F90566 /* Cells */,
@@ -283,7 +283,7 @@
 			files = (
 				92DB1C36187464D300EB695B /* Main_iPad.storyboard in Resources */,
 				92DB1C3B187464D300EB695B /* Images.xcassets in Resources */,
-				92DB1C33187464D300EB695B /* цццюцшт2юст.п10.storyboard in Resources */,
+				92DB1C33187464D300EB695B /* Main_iPhone.storyboard in Resources */,
 				92E993B8188131FC00324946 /* CLCurrentWeatherCell.xib in Resources */,
 				926C89A61876A3A600F90566 /* CLMainViewCell.xib in Resources */,
 				92DB1C2A187464D300EB695B /* InfoPlist.strings in Resources */,
@@ -345,12 +345,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		92DB1C31187464D300EB695B /* цццюцшт2юст.п10.storyboard */ = {
+		92DB1C31187464D300EB695B /* Main_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				92DB1C32187464D300EB695B /* Base */,
 			);
-			name = "цццюцшт2юст.п10.storyboard";
+			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		92DB1C34187464D300EB695B /* Main_iPad.storyboard */ = {
