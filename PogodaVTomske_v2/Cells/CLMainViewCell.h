@@ -10,4 +10,20 @@
 
 @interface CLMainViewCell : UITableViewCell
 
+@property (nonatomic, retain) IBOutlet UILabel * cityLabel;
+@property (nonatomic, retain) IBOutlet UIView * mainView;
+
+-(float) getHeigth;
+
+
+
+
 @end
+/*
+@protocol DataSourceItem <NSObject>
+
+@optional
+-(Class)tableViewCellClass;
+
+@end
+*/

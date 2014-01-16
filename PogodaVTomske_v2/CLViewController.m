@@ -8,6 +8,7 @@
 
 #import "CLViewController.h"
 #import "CLMainViewCell.h"
+#import "CLCurrentWeatherCell.h"
 
 @interface CLViewController ()
 
@@ -31,30 +32,82 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString * cellId = @"mainCellIdent";
-    CLMainViewCell * cell=[tableView dequeueReusableCellWithIdentifier:cellId];
-    
-    if (cell == nil) {
-        NSArray * nib=[[NSBundle mainBundle] loadNibNamed:@"CLMainViewCell" owner:nil options:nil];
-        
-        for (id currentObject in nib) {
-            cell=(CLMainViewCell *)currentObject;
-            break;
+{   
+   	 if (indexPath.row == 0) {
+        static NSString * cellId = @"mainCellIdent";
+        CLMainViewCell * cell=[tableView dequeueReusableCellWithIdentifier:cellId];
+         
+        if (cell == nil) {
+            NSArray * nib=[[NSBundle mainBundle] loadNibNamed:@"CLMainViewCell" owner:nil options:nil];
+            
+            for (id currentObject in nib) {
+                //cell=(CLMainViewCell *)currentObject;
+                
+               // UITableViewCell * cell=[self getClassCell];
+                //cell=[cell initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+                cell=[[CLMainViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+                NSLog(@"%f",cell.mainView.bounds.size.height);
+                break;
+            }
         }
+        
+        cell.cityLabel.text=@"Tomsk";
+        return cell;
+    }else{
+        static NSString * cellId = @"currentWeatherCellId";
+        CLCurrentWeatherCell * cell=[tableView dequeueReusableCellWithIdentifier:cellId];
+        
+        if (cell == nil) {
+            NSArray * nib=[[NSBundle mainBundle] loadNibNamed:@"CLCurrentWeatherCell" owner:nil options:nil];
+            
+            for (id currentObject in nib) {
+                cell=(CLCurrentWeatherCell *)currentObject;
+                break;
+            }
+        }
+        return cell;
     }
+    
+    
    
     
-    return cell;
+    return NULL;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 380.0f;
+   // CLMainViewCell.
+    CLMainViewCell * cell=[[CLMainViewCell alloc] init];
+    float heigth=[cell getHeigth];
+    NSLog(@"hei  %f",heigth);
+    if (indexPath.row < 2)
+        return 250;
+    return 100.0f;
+}
+
+-(Class)cellClassForItem:(id)rowItem
+{
+    Class theClass = [ UITableViewCell class ] ;
+    
+    if ( [ rowItem isKindOfClass:[ CLMainViewCell class ] ] )
+    {
+        theClass = [ CLMainViewCell class ] ;
+    }
+    else if ( [ rowItem isKindOfClass:[ CLCurrentWeatherCell class ] ] )
+    {
+        theClass = [ CLCurrentWeatherCell class ] ;
+    }
+    
+    return theClass ;
+}
+
+-(Class) getClassCell
+{
+    return [CLMainViewCell class];
 }
 
 
