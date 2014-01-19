@@ -10,4 +10,6 @@
 
 @interface CLForecastCell : UITableViewCell
 
+
+
 @end

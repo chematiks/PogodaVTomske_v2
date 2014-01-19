@@ -10,4 +10,6 @@
 
 @interface CLSunAndMoonCell : UITableViewCell
 
+
+
 @end

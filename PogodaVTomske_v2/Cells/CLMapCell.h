@@ -10,4 +10,6 @@
 
 @interface CLMapCell : UITableViewCell
 
+
+
 @end

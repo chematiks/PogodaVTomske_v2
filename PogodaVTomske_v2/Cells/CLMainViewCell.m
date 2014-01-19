@@ -7,6 +7,7 @@
 //
 
 #import "CLMainViewCell.h"
+#import "constants.h"
 
 @implementation CLMainViewCell
 
@@ -16,10 +17,10 @@
     if (self) {
         
         // Initialization code
-        UIView * baseView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 250)];
+        UIView * baseView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, hCLMainViewCell)];
         
         
-        UILabel * cityLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 100, 320, 50)];
+        UILabel * cityLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 100, hCLMainViewCell, 50)];
         cityLabel.textAlignment=NSTextAlignmentCenter;
         cityLabel.font=[cityLabel.font fontWithSize:30];
         
@@ -31,13 +32,10 @@
         [self.contentView addSubview:baseView];
         
         self.cityLabel=cityLabel;
-        
-        
-        //CGSize size=CGSizeMake(320, 250);
-       // NSLog(@"%f",self.bounds.size.height);
+        //[[UIScreen mainScreen] bounds].size.height
+    
         
     }
-    self.contentView.backgroundColor=[UIColor yellowColor];
 
     return self;
 }
@@ -48,9 +46,11 @@
     // Configure the view for the selected state
 }
 
--(float)getHeigth
+-(void) configureCell:(NSDictionary *) content
 {
-    return 199.0f;
+  //  NSLog(@"name %@",[content objectForKey:@"name"]);
+  //  NSString * cell=NSStringFromClass(self.class);
+  //  NSLog(@"%@",cell);
 }
 
 

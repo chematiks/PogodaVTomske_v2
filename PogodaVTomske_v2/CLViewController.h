@@ -10,4 +10,6 @@
 
 @interface CLViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableViewMain;
+
 @end

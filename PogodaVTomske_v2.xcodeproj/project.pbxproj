@@ -13,6 +13,7 @@
 		926C899D1876A03D00F90566 /* CLMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C899C1876A03D00F90566 /* CLMapCell.m */; };
 		926C89A01876A05A00F90566 /* CLSunAndMoonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C899F1876A05A00F90566 /* CLSunAndMoonCell.m */; };
 		926C89A31876A0AB00F90566 /* CLWindAndPressureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C89A21876A0AB00F90566 /* CLWindAndPressureCell.m */; };
+		92B91881188857B9006C62BA /* UITableViewCell+getHeightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B91880188857B9006C62BA /* UITableViewCell+getHeightCell.m */; };
 		92DB1C20187464D300EB695B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92DB1C1F187464D300EB695B /* Foundation.framework */; };
 		92DB1C22187464D300EB695B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92DB1C21187464D300EB695B /* CoreGraphics.framework */; };
 		92DB1C24187464D300EB695B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92DB1C23187464D300EB695B /* UIKit.framework */; };
@@ -54,6 +55,9 @@
 		926C899F1876A05A00F90566 /* CLSunAndMoonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLSunAndMoonCell.m; path = Cells/CLSunAndMoonCell.m; sourceTree = "<group>"; };
 		926C89A11876A0AB00F90566 /* CLWindAndPressureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLWindAndPressureCell.h; path = Cells/CLWindAndPressureCell.h; sourceTree = "<group>"; };
 		926C89A21876A0AB00F90566 /* CLWindAndPressureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLWindAndPressureCell.m; path = Cells/CLWindAndPressureCell.m; sourceTree = "<group>"; };
+		929F6E0B18892DC7002C999D /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		92B9187F188857B9006C62BA /* UITableViewCell+getHeightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+getHeightCell.h"; sourceTree = "<group>"; };
+		92B91880188857B9006C62BA /* UITableViewCell+getHeightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+getHeightCell.m"; sourceTree = "<group>"; };
 		92DB1C1C187464D300EB695B /* PogodaVTomske_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PogodaVTomske_v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DB1C1F187464D300EB695B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		92DB1C21187464D300EB695B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +123,7 @@
 				926C899F1876A05A00F90566 /* CLSunAndMoonCell.m */,
 				926C89A11876A0AB00F90566 /* CLWindAndPressureCell.h */,
 				926C89A21876A0AB00F90566 /* CLWindAndPressureCell.m */,
+				929F6E0B18892DC7002C999D /* constants.h */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -162,6 +167,8 @@
 				92DB1C31187464D300EB695B /* Main_iPhone.storyboard */,
 				92DB1C37187464D300EB695B /* CLViewController.h */,
 				92DB1C38187464D300EB695B /* CLViewController.m */,
+				92B9187F188857B9006C62BA /* UITableViewCell+getHeightCell.h */,
+				92B91880188857B9006C62BA /* UITableViewCell+getHeightCell.m */,
 				926C89A41876A0B300F90566 /* Cells */,
 				92DB1C3A187464D300EB695B /* Images.xcassets */,
 				92DB1C26187464D300EB695B /* Supporting Files */,
@@ -298,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92DB1C2C187464D300EB695B /* main.m in Sources */,
+				92B91881188857B9006C62BA /* UITableViewCell+getHeightCell.m in Sources */,
 				92DB1C30187464D300EB695B /* CLAppDelegate.m in Sources */,
 				926C898E18769ACD00F90566 /* CLMainViewCell.m in Sources */,
 				926C899D1876A03D00F90566 /* CLMapCell.m in Sources */,

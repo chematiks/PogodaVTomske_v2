@@ -10,4 +10,6 @@
 
 @interface CLDetailsCell : UITableViewCell
 
+
+
 @end

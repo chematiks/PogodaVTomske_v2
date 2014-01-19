@@ -7,11 +7,20 @@
 //
 
 #import "CLViewController.h"
+#import "UITableViewCell+getHeightCell.h"
 #import "CLMainViewCell.h"
 #import "CLCurrentWeatherCell.h"
+#import "CLDetailsCell.h"
+#import "CLForecastCell.h"
+#import "CLMapCell.h"
+#import "CLSunAndMoonCell.h"
+#import "CLWindAndPressureCell.h"
+#import "constants.h"
 
 @interface CLViewController ()
-
+{
+    NSMutableArray * cellIdArray;
+}
 @end
 
 @implementation CLViewController
@@ -19,6 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    cellIdArray=[[NSMutableArray alloc] initWithObjects:
+                 @"CLMainViewCell",
+                 @"CLCurrentWeatherCell",
+                 @"CLForecastCell",
+                 @"CLDetailsCell",
+                 @"CLMapCell",
+                 @"CLSunAndMoonCell",
+                 @"CLWindAndPressureCell", nil];
+    //[self.tableViewMain setDecelerationRate:UIScrollViewDecelerationRateFast];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -32,83 +50,67 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return [cellIdArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {   
-   	 if (indexPath.row == 0) {
-        static NSString * cellId = @"mainCellIdent";
-        CLMainViewCell * cell=[tableView dequeueReusableCellWithIdentifier:cellId];
-         
-        if (cell == nil) {
-            NSArray * nib=[[NSBundle mainBundle] loadNibNamed:@"CLMainViewCell" owner:nil options:nil];
-            
-            for (id currentObject in nib) {
-                //cell=(CLMainViewCell *)currentObject;
-                
-               // UITableViewCell * cell=[self getClassCell];
-                //cell=[cell initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-                cell=[[CLMainViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-                NSLog(@"%f",cell.mainView.bounds.size.height);
-                break;
-            }
-        }
-        
-        cell.cityLabel.text=@"Tomsk";
-        return cell;
-    }else{
-        static NSString * cellId = @"currentWeatherCellId";
-        CLCurrentWeatherCell * cell=[tableView dequeueReusableCellWithIdentifier:cellId];
-        
-        if (cell == nil) {
-            NSArray * nib=[[NSBundle mainBundle] loadNibNamed:@"CLCurrentWeatherCell" owner:nil options:nil];
-            
-            for (id currentObject in nib) {
-                cell=(CLCurrentWeatherCell *)currentObject;
-                break;
-            }
-        }
-        return cell;
-    }
-    
-    
+   	NSString * cellId = [cellIdArray objectAtIndex:indexPath.row];
    
+    Class theClass=[self cellClassForCellId:cellId];
+    UITableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:cellId];
     
-    return NULL;
+    if (cell==nil) {
+        cell=[[theClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+    }
+    NSDictionary * cellData=[[NSDictionary alloc] initWithObjectsAndKeys:@"cell",@"name", nil];
+    [cell configureCell:cellData];
+   
+    return cell;
 }
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   // CLMainViewCell.
-    CLMainViewCell * cell=[[CLMainViewCell alloc] init];
-    float heigth=[cell getHeigth];
-    NSLog(@"hei  %f",heigth);
-    if (indexPath.row < 2)
-        return 250;
-    return 100.0f;
+    UITableViewCell * cell=[[UITableViewCell alloc] init];
+    return [cell getHeigthCell:cellIdArray[indexPath.row]];
 }
 
--(Class)cellClassForItem:(id)rowItem
+-(Class)cellClassForCellId:(NSString *)cellId
 {
-    Class theClass = [ UITableViewCell class ] ;
-    
-    if ( [ rowItem isKindOfClass:[ CLMainViewCell class ] ] )
-    {
-        theClass = [ CLMainViewCell class ] ;
-    }
-    else if ( [ rowItem isKindOfClass:[ CLCurrentWeatherCell class ] ] )
-    {
-        theClass = [ CLCurrentWeatherCell class ] ;
-    }
-    
-    return theClass ;
+    return NSClassFromString(cellId);
 }
 
--(Class) getClassCell
+#pragma mark -
+#pragma mark - Hand Dragging Table View
+
+-(void)scrollViewDidEndDragging:(UITableView *)tableView willDecelerate:(BOOL)decelerate
 {
-    return [CLMainViewCell class];
+    [self handDraggingTableView:tableView];
 }
 
+- (void)scrollViewDidEndDecelerating:(UITableView *)tableView
+{
+    [self handDraggingTableView:tableView];
+}
+
+-(void) handDraggingTableView:(UITableView *) tableView
+{
+    float targetY=tableView.contentOffset.y;
+    if (targetY <hCLMainViewCell+hCLCurrentWeatherCell){
+        if (targetY <= hCLForecastCell/2) {
+            [tableView setContentOffset:CGPointMake(0, 0) animated:YES];
+        }else
+            if (targetY > hCLForecastCell/2) {
+                [tableView setContentOffset:CGPointMake(0, hCLMainViewCell) animated:YES];
+            }else
+                if (targetY <= hCLMainViewCell/2) {
+                    [tableView setContentOffset:CGPointMake(0, 0) animated:YES];
+                }else
+                    if (targetY > hCLMainViewCell/2) {
+                        [tableView setContentOffset:CGPointMake(0, hCLMainViewCell) animated:YES];
+                    }
+    }
+}
 
 @end

@@ -15,7 +15,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        
+        self.contentView.backgroundColor=[UIColor redColor];
         
     }
     return self;
@@ -26,6 +26,13 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void) configureCell:(NSDictionary *) content
+{
+  //  NSLog(@"name %@",[content objectForKey:@"name"]);
+ //   NSString * cell=NSStringFromClass(self.class);
+  //  NSLog(@"%@",cell);
 }
 
 @end
