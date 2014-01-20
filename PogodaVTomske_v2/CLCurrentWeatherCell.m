@@ -17,6 +17,20 @@
         // Initialization code
         self.contentView.backgroundColor=[UIColor redColor];
         
+        UILabel * currentTempLabel=[[UILabel alloc] initWithFrame:CGRectMake(10, 30, 200, 80)];
+        currentTempLabel.textAlignment=NSTextAlignmentLeft;
+        currentTempLabel.font=[currentTempLabel.font fontWithSize:80];
+        currentTempLabel.backgroundColor=[UIColor blueColor];
+        currentTempLabel.text=@"-00.0";
+        
+        [self.contentView addSubview:currentTempLabel];
+        
+        
+        
+        
+        
+        
+        
     }
     return self;
 }

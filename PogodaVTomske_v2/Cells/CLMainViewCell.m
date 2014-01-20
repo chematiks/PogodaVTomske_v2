@@ -17,22 +17,17 @@
     if (self) {
         
         // Initialization code
-        UIView * baseView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, hCLMainViewCell)];
-        
-        
-        UILabel * cityLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 100, hCLMainViewCell, 50)];
+       
+        UILabel * cityLabel=[[UILabel alloc] initWithFrame:CGRectMake(50, 20, 220, 40)];
         cityLabel.textAlignment=NSTextAlignmentCenter;
-        cityLabel.font=[cityLabel.font fontWithSize:30];
+        cityLabel.font=[UIFont fontWithName:@"HelveticaNeue-Light" size:(30)];
+      //  cityLabel.backgroundColor=[UIColor blueColor];
+        cityLabel.text=@"Томск";
+        cityLabel.textColor=[UIColor whiteColor];
+        [self.contentView addSubview:cityLabel];
         
-        
-        
-        baseView.backgroundColor=[UIColor greenColor];
-        [baseView addSubview:cityLabel];
-        self.mainView=baseView;
-        [self.contentView addSubview:baseView];
-        
+        self.contentView.backgroundColor=[UIColor greenColor];
         self.cityLabel=cityLabel;
-        //[[UIScreen mainScreen] bounds].size.height
     
         
     }

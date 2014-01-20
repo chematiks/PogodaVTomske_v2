@@ -10,4 +10,10 @@
 
 @interface CLCurrentWeatherCell : UITableViewCell
 
+@property (nonatomic, retain) IBOutlet UILabel * currentTempLabel;
+@property (nonatomic, retain) IBOutlet UILabel * maxTempForecastLabel;
+@property (nonatomic, retain) IBOutlet UILabel * minTempForecastLabel;
+@property (nonatomic, retain) IBOutlet UILabel * currentCloudingLabel;
+@property (nonatomic, retain) IBOutlet UIImage * currentCloudingImage;
+
 @end
