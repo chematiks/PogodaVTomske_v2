@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84016C41188CD8830070F64B /* CLWeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C40188CD8830070F64B /* CLWeatherAPI.m */; };
+		84016C45188D0DA40070F64B /* CLCityWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C44188D0DA40070F64B /* CLCityWeather.m */; };
+		84016C4B188D14B80070F64B /* CLForecastOnDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C4A188D14B80070F64B /* CLForecastOnDay.m */; };
+		84016C4E188D1AB40070F64B /* CLForecastMorningEvening.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C4D188D1AB40070F64B /* CLForecastMorningEvening.m */; };
+		84016C51188D21F50070F64B /* CLWeatherDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C50188D21F50070F64B /* CLWeatherDataManager.m */; };
+		84016C5C188D25A20070F64B /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C58188D25A20070F64B /* HTMLNode.m */; };
+		84016C5D188D25A20070F64B /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C5A188D25A20070F64B /* HTMLParser.m */; };
+		84016C5E188D25A20070F64B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 84016C5B188D25A20070F64B /* README.md */; };
+		84016C60188D26D30070F64B /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84016C5F188D26D30070F64B /* libxml2.dylib */; };
 		926C898E18769ACD00F90566 /* CLMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C898D18769ACD00F90566 /* CLMainViewCell.m */; };
 		926C899718769FC500F90566 /* CLDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C899618769FC500F90566 /* CLDetailsCell.m */; };
 		926C899A1876A02000F90566 /* CLForecastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C89991876A02000F90566 /* CLForecastCell.m */; };
@@ -43,6 +52,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84016C3F188CD8830070F64B /* CLWeatherAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLWeatherAPI.h; sourceTree = "<group>"; };
+		84016C40188CD8830070F64B /* CLWeatherAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLWeatherAPI.m; sourceTree = "<group>"; };
+		84016C43188D0DA40070F64B /* CLCityWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLCityWeather.h; sourceTree = "<group>"; };
+		84016C44188D0DA40070F64B /* CLCityWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLCityWeather.m; sourceTree = "<group>"; };
+		84016C49188D14B80070F64B /* CLForecastOnDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLForecastOnDay.h; sourceTree = "<group>"; };
+		84016C4A188D14B80070F64B /* CLForecastOnDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLForecastOnDay.m; sourceTree = "<group>"; };
+		84016C4C188D1AB40070F64B /* CLForecastMorningEvening.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLForecastMorningEvening.h; sourceTree = "<group>"; };
+		84016C4D188D1AB40070F64B /* CLForecastMorningEvening.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLForecastMorningEvening.m; sourceTree = "<group>"; };
+		84016C4F188D21F50070F64B /* CLWeatherDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLWeatherDataManager.h; sourceTree = "<group>"; };
+		84016C50188D21F50070F64B /* CLWeatherDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLWeatherDataManager.m; sourceTree = "<group>"; };
+		84016C57188D25A20070F64B /* HTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLNode.h; sourceTree = "<group>"; };
+		84016C58188D25A20070F64B /* HTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLNode.m; sourceTree = "<group>"; };
+		84016C59188D25A20070F64B /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
+		84016C5A188D25A20070F64B /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
+		84016C5B188D25A20070F64B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		84016C5F188D26D30070F64B /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		926C898C18769ACD00F90566 /* CLMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLMainViewCell.h; path = Cells/CLMainViewCell.h; sourceTree = "<group>"; };
 		926C898D18769ACD00F90566 /* CLMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLMainViewCell.m; path = Cells/CLMainViewCell.m; sourceTree = "<group>"; };
 		926C899518769FC500F90566 /* CLDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLDetailsCell.h; path = Cells/CLDetailsCell.h; sourceTree = "<group>"; };
@@ -87,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84016C60188D26D30070F64B /* libxml2.dylib in Frameworks */,
 				92DB1C22187464D300EB695B /* CoreGraphics.framework in Frameworks */,
 				92DB1C24187464D300EB695B /* UIKit.framework in Frameworks */,
 				92DB1C20187464D300EB695B /* Foundation.framework in Frameworks */,
@@ -106,9 +132,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84016C3C188CD7D00070F64B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84016C43188D0DA40070F64B /* CLCityWeather.h */,
+				84016C44188D0DA40070F64B /* CLCityWeather.m */,
+				84016C49188D14B80070F64B /* CLForecastOnDay.h */,
+				84016C4A188D14B80070F64B /* CLForecastOnDay.m */,
+				84016C4C188D1AB40070F64B /* CLForecastMorningEvening.h */,
+				84016C4D188D1AB40070F64B /* CLForecastMorningEvening.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		84016C3D188CD7DE0070F64B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				926C89A41876A0B300F90566 /* Cells */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		84016C3E188CD7EB0070F64B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				92DB1C37187464D300EB695B /* CLViewController.h */,
+				92DB1C38187464D300EB695B /* CLViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		84016C42188D0D6B0070F64B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				84016C52188D25A20070F64B /* HMTLParser */,
+				84016C3F188CD8830070F64B /* CLWeatherAPI.h */,
+				84016C40188CD8830070F64B /* CLWeatherAPI.m */,
+				84016C4F188D21F50070F64B /* CLWeatherDataManager.h */,
+				84016C50188D21F50070F64B /* CLWeatherDataManager.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		84016C52188D25A20070F64B /* HMTLParser */ = {
+			isa = PBXGroup;
+			children = (
+				84016C57188D25A20070F64B /* HTMLNode.h */,
+				84016C58188D25A20070F64B /* HTMLNode.m */,
+				84016C59188D25A20070F64B /* HTMLParser.h */,
+				84016C5A188D25A20070F64B /* HTMLParser.m */,
+				84016C5B188D25A20070F64B /* README.md */,
+			);
+			path = HMTLParser;
+			sourceTree = "<group>";
+		};
 		926C89A41876A0B300F90566 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				92B9187F188857B9006C62BA /* UITableViewCell+getHeightCell.h */,
+				92B91880188857B9006C62BA /* UITableViewCell+getHeightCell.m */,
 				926C898C18769ACD00F90566 /* CLMainViewCell.h */,
 				926C898D18769ACD00F90566 /* CLMainViewCell.m */,
 				92E993B4188131BC00324946 /* CLCurrentWeatherCell.h */,
@@ -150,6 +232,7 @@
 		92DB1C1E187464D300EB695B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84016C5F188D26D30070F64B /* libxml2.dylib */,
 				92DB1C1F187464D300EB695B /* Foundation.framework */,
 				92DB1C21187464D300EB695B /* CoreGraphics.framework */,
 				92DB1C23187464D300EB695B /* UIKit.framework */,
@@ -161,15 +244,14 @@
 		92DB1C25187464D300EB695B /* PogodaVTomske_v2 */ = {
 			isa = PBXGroup;
 			children = (
+				84016C42188D0D6B0070F64B /* API */,
+				84016C3C188CD7D00070F64B /* Model */,
+				84016C3D188CD7DE0070F64B /* View */,
+				84016C3E188CD7EB0070F64B /* Controller */,
 				92DB1C2E187464D300EB695B /* CLAppDelegate.h */,
 				92DB1C2F187464D300EB695B /* CLAppDelegate.m */,
 				92DB1C34187464D300EB695B /* Main_iPad.storyboard */,
 				92DB1C31187464D300EB695B /* Main_iPhone.storyboard */,
-				92DB1C37187464D300EB695B /* CLViewController.h */,
-				92DB1C38187464D300EB695B /* CLViewController.m */,
-				92B9187F188857B9006C62BA /* UITableViewCell+getHeightCell.h */,
-				92B91880188857B9006C62BA /* UITableViewCell+getHeightCell.m */,
-				926C89A41876A0B300F90566 /* Cells */,
 				92DB1C3A187464D300EB695B /* Images.xcassets */,
 				92DB1C26187464D300EB695B /* Supporting Files */,
 			);
@@ -284,6 +366,7 @@
 			files = (
 				92DB1C36187464D300EB695B /* Main_iPad.storyboard in Resources */,
 				92DB1C3B187464D300EB695B /* Images.xcassets in Resources */,
+				84016C5E188D25A20070F64B /* README.md in Resources */,
 				92DB1C33187464D300EB695B /* Main_iPhone.storyboard in Resources */,
 				92DB1C2A187464D300EB695B /* InfoPlist.strings in Resources */,
 			);
@@ -306,14 +389,21 @@
 			files = (
 				92DB1C2C187464D300EB695B /* main.m in Sources */,
 				92B91881188857B9006C62BA /* UITableViewCell+getHeightCell.m in Sources */,
+				84016C4B188D14B80070F64B /* CLForecastOnDay.m in Sources */,
+				84016C4E188D1AB40070F64B /* CLForecastMorningEvening.m in Sources */,
 				92DB1C30187464D300EB695B /* CLAppDelegate.m in Sources */,
+				84016C51188D21F50070F64B /* CLWeatherDataManager.m in Sources */,
 				926C898E18769ACD00F90566 /* CLMainViewCell.m in Sources */,
+				84016C45188D0DA40070F64B /* CLCityWeather.m in Sources */,
 				926C899D1876A03D00F90566 /* CLMapCell.m in Sources */,
 				926C899718769FC500F90566 /* CLDetailsCell.m in Sources */,
+				84016C41188CD8830070F64B /* CLWeatherAPI.m in Sources */,
 				926C89A31876A0AB00F90566 /* CLWindAndPressureCell.m in Sources */,
 				92DB1C39187464D300EB695B /* CLViewController.m in Sources */,
+				84016C5D188D25A20070F64B /* HTMLParser.m in Sources */,
 				92E993B6188131BC00324946 /* CLCurrentWeatherCell.m in Sources */,
 				926C89A01876A05A00F90566 /* CLSunAndMoonCell.m in Sources */,
+				84016C5C188D25A20070F64B /* HTMLNode.m in Sources */,
 				926C899A1876A02000F90566 /* CLForecastCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,6 +543,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PogodaVTomske_v2/PogodaVTomske_v2-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "PogodaVTomske_v2/PogodaVTomske_v2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -468,6 +563,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PogodaVTomske_v2/PogodaVTomske_v2-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "PogodaVTomske_v2/PogodaVTomske_v2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
