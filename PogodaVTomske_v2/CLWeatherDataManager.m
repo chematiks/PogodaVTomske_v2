@@ -15,6 +15,12 @@
 - (NSDictionary *)loadDataForCity:(NSString *)city
 {
     NSDictionary * weather=[[NSDictionary alloc] initWithObjectsAndKeys:@"-10.0",kCurrentTemp, nil];
+    CLPogodaVTomskeParser * parser=[[CLPogodaVTomskeParser alloc] init];
+    
+    [parser getCurrentWeatherForCity:city];
+    [parser getForecastForCity:city];
+    
+    
     
     return weather;
 }

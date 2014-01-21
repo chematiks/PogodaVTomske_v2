@@ -16,10 +16,13 @@
 @property (nonatomic,retain) NSString *       currentCloudImg;
 @property (nonatomic,retain) NSString *       currentCloudText;
 @property (nonatomic) float                   currentSpeedWind;
+@property (nonatomic,retain) NSString *       currentWindDirection;
 @property (nonatomic) float                   currentPressure;
 @property (nonatomic,retain) NSDate *         timeSunSet;
 @property (nonatomic,retain) NSDate *         timeSunrise;
-@property (nonatomic,retain) NSMutableArray * forecastFor3Days;
+@property (nonatomic) float                   humidityAir;
+@property (nonatomic,retain) NSString *       magneticStorms;
+@property (nonatomic,retain) NSString *       moonImage;
 @property (nonatomic,retain) NSMutableArray * forecastFor10Days;
 
 

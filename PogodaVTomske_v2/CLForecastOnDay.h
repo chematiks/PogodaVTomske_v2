@@ -13,6 +13,5 @@
 @property (nonatomic) float              maxTemp;
 @property (nonatomic) float              minTemp;
 @property (nonatomic, retain) NSString * cloudImg;
-@property (nonatomic, retain) NSString * cloudText;
 
 @end

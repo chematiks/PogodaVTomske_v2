@@ -10,37 +10,67 @@
 #import "HTMLParser.h"
 #import "HTMLNode.h"
 
+#define baseURL @"pogodavtomske.ru/"
+
+@interface CLPogodaVTomskeParser ()
+{
+    HTMLParser * parserCurrent;
+    HTMLParser * parserForcast;
+}
+
+@end
+
 @implementation CLPogodaVTomskeParser
 
- 
-
-
-/*
--(int) downLoadData
+-(int) downloadDataForCity:(NSString *) city andType:(NSString *) type inParser:(HTMLParser *) parser
 {
     NSError * error = nil;
-    NSData * data=[[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:[self.baseURL stringByAppendingString:@"/forecast10.html"]]];
+    if (city.length >0)
+        [city stringByAppendingString:@"."];
+    NSURL * url=[NSURL URLWithString:[NSString stringWithFormat:@"http://%@%@%@",city,baseURL,type]];
+    
+    NSData * data=[[NSData alloc] initWithContentsOfURL:url];
     NSString * stroka=[[NSString alloc] initWithData:data encoding:NSWindowsCP1251StringEncoding];
-    self.parser=[[HTMLParser alloc] initWithString:stroka error:&error];
+    parser=[[HTMLParser alloc] initWithString:stroka error:&error];
     int errorcode=0;
     if (error)
     {
         NSLog(@"Error: %@", error);
         errorcode=error.code;
     }
-    NSData * todayData=[[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:[self.baseURL stringByAppendingString:@"/index.html"]]];
-    NSString * todaystr=[[NSString alloc] initWithData:todayData encoding:NSWindowsCP1251StringEncoding];
-    self.todayParser=[[HTMLParser alloc] initWithString:todaystr error:&error];
-    if (error)
-    {
-        NSLog(@"Error: %@", error);
-        errorcode=error.code;
-        
-    }
-    
     return errorcode;
 }
 
+- (CLCityWeather *)getCurrentWeatherForCity:(NSString *)city
+{
+    int error = [self downloadDataForCity:city andType:@"/current.html" inParser:parserCurrent];
+    if (error)
+        return nil;
+    
+    CLCityWeather * currentWeather=[[CLCityWeather alloc] init];
+    
+    //code parsing cite and write data in currentWeather
+    
+    
+    return currentWeather;
+}
+
+- (NSMutableArray *)getForecastForCity:(NSString *)city
+{
+    int error = [self downloadDataForCity:city andType:@"/forecast10.html" inParser:parserForcast];
+    if (error)
+        return nil;
+    NSMutableArray * forecast=[NSMutableArray array];
+    
+    //code parsing cite and write data in array
+    
+    return forecast;
+}
+
+
+
+
+/*
 
 -(void) parserData
 {
@@ -109,17 +139,7 @@
             [self.dataPogoda.forecastOnTenDay addObject:prognoz1Day];
         }
     }
-    todayInt=0;
-    wallpapers =[NSMutableArray array];
-    UIImage * wallp1=[UIImage imageNamed568:@"Wallpaper1.jpg"];
-    [wallpapers addObject:wallp1];
-    UIImage * wallp2=[UIImage imageNamed568:@"wallpaper2.jpg"];
-    [wallpapers addObject:wallp2];
-    wallpapersDeg =[NSMutableArray array];
-    UIImage * wallpD1=[UIImage imageNamed568:@"Wallpaper1deg.jpg"];
-    [wallpapersDeg addObject:wallpD1];
-    UIImage * wallpD2=[UIImage imageNamed568:@"wallpaper2deg.jpg"];
-    [wallpapersDeg addObject:wallpD2];
+
 }
 */
 

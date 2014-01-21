@@ -10,7 +10,6 @@
 		84016C41188CD8830070F64B /* CLWeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C40188CD8830070F64B /* CLWeatherAPI.m */; };
 		84016C45188D0DA40070F64B /* CLCityWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C44188D0DA40070F64B /* CLCityWeather.m */; };
 		84016C4B188D14B80070F64B /* CLForecastOnDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C4A188D14B80070F64B /* CLForecastOnDay.m */; };
-		84016C4E188D1AB40070F64B /* CLForecastMorningEvening.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C4D188D1AB40070F64B /* CLForecastMorningEvening.m */; };
 		84016C51188D21F50070F64B /* CLWeatherDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C50188D21F50070F64B /* CLWeatherDataManager.m */; };
 		84016C5C188D25A20070F64B /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C58188D25A20070F64B /* HTMLNode.m */; };
 		84016C5D188D25A20070F64B /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C5A188D25A20070F64B /* HTMLParser.m */; };
@@ -59,8 +58,6 @@
 		84016C44188D0DA40070F64B /* CLCityWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLCityWeather.m; sourceTree = "<group>"; };
 		84016C49188D14B80070F64B /* CLForecastOnDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLForecastOnDay.h; sourceTree = "<group>"; };
 		84016C4A188D14B80070F64B /* CLForecastOnDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLForecastOnDay.m; sourceTree = "<group>"; };
-		84016C4C188D1AB40070F64B /* CLForecastMorningEvening.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLForecastMorningEvening.h; sourceTree = "<group>"; };
-		84016C4D188D1AB40070F64B /* CLForecastMorningEvening.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLForecastMorningEvening.m; sourceTree = "<group>"; };
 		84016C4F188D21F50070F64B /* CLWeatherDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLWeatherDataManager.h; sourceTree = "<group>"; };
 		84016C50188D21F50070F64B /* CLWeatherDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLWeatherDataManager.m; sourceTree = "<group>"; };
 		84016C57188D25A20070F64B /* HTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLNode.h; sourceTree = "<group>"; };
@@ -143,8 +140,6 @@
 				84016C44188D0DA40070F64B /* CLCityWeather.m */,
 				84016C49188D14B80070F64B /* CLForecastOnDay.h */,
 				84016C4A188D14B80070F64B /* CLForecastOnDay.m */,
-				84016C4C188D1AB40070F64B /* CLForecastMorningEvening.h */,
-				84016C4D188D1AB40070F64B /* CLForecastMorningEvening.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -397,7 +392,6 @@
 				92DB1C2C187464D300EB695B /* main.m in Sources */,
 				92B91881188857B9006C62BA /* UITableViewCell+getHeightCell.m in Sources */,
 				84016C4B188D14B80070F64B /* CLForecastOnDay.m in Sources */,
-				84016C4E188D1AB40070F64B /* CLForecastMorningEvening.m in Sources */,
 				92DB1C30187464D300EB695B /* CLAppDelegate.m in Sources */,
 				84016C51188D21F50070F64B /* CLWeatherDataManager.m in Sources */,
 				84016C68188E81D70070F64B /* CLPogodaVTomskeParser.m in Sources */,

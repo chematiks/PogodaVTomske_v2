@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CLCityWeather.h"
 
 @interface CLPogodaVTomskeParser : NSObject
 
--()
+-(CLCityWeather *) getCurrentWeatherForCity:(NSString *)city;
+-(NSMutableArray *) getForecastForCity:(NSString *)city;
 
 @end
