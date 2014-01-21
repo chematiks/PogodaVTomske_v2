@@ -7,6 +7,15 @@
 //
 
 #import "CLWeatherAPI.h"
+#import "CLWeatherDataManager.h"
+
+@interface CLWeatherAPI ()
+{
+    BOOL isOnline;
+    CLWeatherDataManager * weatherDataManager;
+}
+
+@end
 
 @implementation CLWeatherAPI
 
@@ -20,6 +29,54 @@
         _sharedWeather=[[CLWeatherAPI alloc] init];
     });
     return _sharedWeather;
+}
+
+-(id) init
+{
+    self = [super init];
+    if (self) {
+        weatherDataManager=[[CLWeatherDataManager alloc] init];
+        isOnline = YES;
+    }
+    return self;
+}
+
+- (CLCityWeather *)getWeatherInCity:(NSString *)city
+{
+    CLCityWeather * weather=[[CLCityWeather alloc] init];
+    
+    //-------------------------------------------
+    //checking have or not data and date last weather data
+    //-------------------------------------------
+    
+    
+
+    return weather;
+}
+
+- (NSDictionary *)getCurrentWeather:(NSString *)city
+{
+    return  [weatherDataManager loadDataForCity:city];
+}
+
+-(NSDictionary *) getDetailsWeather:(NSString *) city
+{
+    return  [weatherDataManager loadDataForCity:city];
+}
+
+-(NSDictionary *) getForecastWeather:(NSString *) city
+{
+    return  [weatherDataManager loadDataForCity:city];
+}
+
+-(NSDictionary *) getSunAndMoon:(NSString *) city
+{
+    return  [weatherDataManager loadDataForCity:city];
+}
+
+-(NSDictionary *) getWindAndPressure:(NSString *) city
+{
+    return  [weatherDataManager loadDataForCity:city];
 }
 
 @end

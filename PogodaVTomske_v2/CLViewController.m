@@ -64,8 +64,9 @@
     if (cell==nil) {
         cell=[[theClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
-    NSDictionary * cellData=[[NSDictionary alloc] initWithObjectsAndKeys:@"cell",@"name", nil];
-    [cell configureCell:cellData];
+    //NSDictionary * cellData=[[NSDictionary alloc] initWithObjectsAndKeys:@"cell",@"name", nil];
+    
+    [cell configureCell];
    
     return cell;
 }

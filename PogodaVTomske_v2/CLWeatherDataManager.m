@@ -7,7 +7,16 @@
 //
 
 #import "CLWeatherDataManager.h"
+#import "CLPogodaVTomskeParser.h"
+#import "keys.h"
 
 @implementation CLWeatherDataManager
+
+- (NSDictionary *)loadDataForCity:(NSString *)city
+{
+    NSDictionary * weather=[[NSDictionary alloc] initWithObjectsAndKeys:@"-10.0",kCurrentTemp, nil];
+    
+    return weather;
+}
 
 @end

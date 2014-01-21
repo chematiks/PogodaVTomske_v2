@@ -10,4 +10,6 @@
 
 @interface CLCurrentWeatherCell : UITableViewCell
 
+@property (nonatomic, retain) IBOutlet UILabel * currentTemp;
+
 @end

@@ -7,9 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CLCityWeather.h"
 
 @interface CLWeatherAPI : NSObject
 
 +(CLWeatherAPI *) sharedWeather;
+
+-(CLCityWeather *) getWeatherInCity:(NSString *) city;
+
+-(NSDictionary *) getCurrentWeather:(NSString *) city;
+-(NSDictionary *) getDetailsWeather:(NSString *) city;
+-(NSDictionary *) getForecastWeather:(NSString *) city;
+-(NSDictionary *) getSunAndMoon:(NSString *) city;
+-(NSDictionary *) getWindAndPressure:(NSString *) city;
 
 @end

@@ -30,7 +30,7 @@
     return 0;
 }
 
-- (void)configureCell:(NSDictionary *)content
+- (void)configureCell
 {
     return;
 }

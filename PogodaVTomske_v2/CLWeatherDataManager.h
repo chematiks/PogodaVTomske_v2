@@ -10,6 +10,6 @@
 
 @interface CLWeatherDataManager : NSObject
 
--(void) loadDataForCity:(NSString *) city;
+-(NSDictionary *) loadDataForCity:(NSString *) city;
 
 @end

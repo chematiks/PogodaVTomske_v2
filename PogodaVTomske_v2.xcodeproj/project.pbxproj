@@ -16,6 +16,7 @@
 		84016C5D188D25A20070F64B /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C5A188D25A20070F64B /* HTMLParser.m */; };
 		84016C5E188D25A20070F64B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 84016C5B188D25A20070F64B /* README.md */; };
 		84016C60188D26D30070F64B /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84016C5F188D26D30070F64B /* libxml2.dylib */; };
+		84016C68188E81D70070F64B /* CLPogodaVTomskeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C67188E81D70070F64B /* CLPogodaVTomskeParser.m */; };
 		926C898E18769ACD00F90566 /* CLMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C898D18769ACD00F90566 /* CLMainViewCell.m */; };
 		926C899718769FC500F90566 /* CLDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C899618769FC500F90566 /* CLDetailsCell.m */; };
 		926C899A1876A02000F90566 /* CLForecastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C89991876A02000F90566 /* CLForecastCell.m */; };
@@ -68,6 +69,9 @@
 		84016C5A188D25A20070F64B /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
 		84016C5B188D25A20070F64B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		84016C5F188D26D30070F64B /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		84016C62188E73A70070F64B /* keys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = keys.h; path = ../keys.h; sourceTree = "<group>"; };
+		84016C66188E81D70070F64B /* CLPogodaVTomskeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLPogodaVTomskeParser.h; path = ../CLPogodaVTomskeParser.h; sourceTree = "<group>"; };
+		84016C67188E81D70070F64B /* CLPogodaVTomskeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLPogodaVTomskeParser.m; path = ../CLPogodaVTomskeParser.m; sourceTree = "<group>"; };
 		926C898C18769ACD00F90566 /* CLMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLMainViewCell.h; path = Cells/CLMainViewCell.h; sourceTree = "<group>"; };
 		926C898D18769ACD00F90566 /* CLMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLMainViewCell.m; path = Cells/CLMainViewCell.m; sourceTree = "<group>"; };
 		926C899518769FC500F90566 /* CLDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLDetailsCell.h; path = Cells/CLDetailsCell.h; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 				84016C40188CD8830070F64B /* CLWeatherAPI.m */,
 				84016C4F188D21F50070F64B /* CLWeatherDataManager.h */,
 				84016C50188D21F50070F64B /* CLWeatherDataManager.m */,
+				84016C62188E73A70070F64B /* keys.h */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -177,6 +182,8 @@
 		84016C52188D25A20070F64B /* HMTLParser */ = {
 			isa = PBXGroup;
 			children = (
+				84016C66188E81D70070F64B /* CLPogodaVTomskeParser.h */,
+				84016C67188E81D70070F64B /* CLPogodaVTomskeParser.m */,
 				84016C57188D25A20070F64B /* HTMLNode.h */,
 				84016C58188D25A20070F64B /* HTMLNode.m */,
 				84016C59188D25A20070F64B /* HTMLParser.h */,
@@ -393,6 +400,7 @@
 				84016C4E188D1AB40070F64B /* CLForecastMorningEvening.m in Sources */,
 				92DB1C30187464D300EB695B /* CLAppDelegate.m in Sources */,
 				84016C51188D21F50070F64B /* CLWeatherDataManager.m in Sources */,
+				84016C68188E81D70070F64B /* CLPogodaVTomskeParser.m in Sources */,
 				926C898E18769ACD00F90566 /* CLMainViewCell.m in Sources */,
 				84016C45188D0DA40070F64B /* CLCityWeather.m in Sources */,
 				926C899D1876A03D00F90566 /* CLMapCell.m in Sources */,

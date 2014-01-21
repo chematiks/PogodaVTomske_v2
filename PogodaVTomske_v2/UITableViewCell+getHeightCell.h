@@ -11,6 +11,6 @@
 @interface UITableViewCell (getHeightCell)
 
 -(float) getHeigthCell:(NSString *)cell;
--(void) configureCell:(NSDictionary *) content;
+-(void) configureCell;
 
 @end

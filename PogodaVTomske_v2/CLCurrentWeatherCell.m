@@ -7,6 +7,8 @@
 //
 
 #import "CLCurrentWeatherCell.h"
+#import "CLWeatherAPI.h"
+#import "keys.h"
 
 @implementation CLCurrentWeatherCell
 
@@ -16,6 +18,14 @@
     if (self) {
         // Initialization code
         self.contentView.backgroundColor=[UIColor redColor];
+        
+        UILabel * currentTemp=[[UILabel alloc] initWithFrame:CGRectMake(10, 30, 200, 100)];
+        currentTemp.textAlignment=NSTextAlignmentCenter;
+        currentTemp.font=[currentTemp.font fontWithSize:30];
+        
+        [self.contentView addSubview:currentTemp];
+        
+        self.currentTemp=currentTemp;
         
     }
     return self;
@@ -28,11 +38,16 @@
     // Configure the view for the selected state
 }
 
--(void) configureCell:(NSDictionary *) content
+-(void) configureCell
 {
   //  NSLog(@"name %@",[content objectForKey:@"name"]);
  //   NSString * cell=NSStringFromClass(self.class);
   //  NSLog(@"%@",cell);
+    
+    NSDictionary * data=[[CLWeatherAPI sharedWeather] getCurrentWeather:@"tomsk"];
+    
+    self.currentTemp.text=[data objectForKey:kCurrentTemp];
+    
 }
 
 @end
