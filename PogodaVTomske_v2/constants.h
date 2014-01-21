@@ -11,9 +11,9 @@
 
 #endif
 
-#define hCLMainViewCell [[UIScreen mainScreen] bounds].size.height-120
+#define hCLMainViewCell [[UIScreen mainScreen] bounds].size.height-160
 
-#define hCLCurrentWeatherCell 120
+#define hCLCurrentWeatherCell 160
 
 #define hCLForecastCell 220
 
