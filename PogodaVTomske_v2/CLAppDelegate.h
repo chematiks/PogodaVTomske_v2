@@ -13,3 +13,12 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @end
+
+
+
+
+
+
+
+// http://habrahabr.ru/post/136149/
+// http://habrahabr.ru/post/150572/

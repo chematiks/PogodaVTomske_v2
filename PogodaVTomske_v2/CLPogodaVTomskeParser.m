@@ -11,6 +11,8 @@
 #import "HTMLNode.h"
 
 #define baseURL @"pogodavtomske.ru/"
+#define kCurrent @"current.html"
+#define kForecast @"forecast10.html"
 
 @interface CLPogodaVTomskeParser ()
 {
@@ -22,16 +24,20 @@
 
 @implementation CLPogodaVTomskeParser
 
--(int) downloadDataForCity:(NSString *) city andType:(NSString *) type inParser:(HTMLParser *) parser
+-(int) downloadDataForCity:(NSString *) city andType:(NSString *) type
 {
     NSError * error = nil;
+    if ([city isEqualToString:@"tomsk"]) city=@"";
     if (city.length >0)
-        [city stringByAppendingString:@"."];
+        city=[city stringByAppendingString:@"."];
     NSURL * url=[NSURL URLWithString:[NSString stringWithFormat:@"http://%@%@%@",city,baseURL,type]];
-    
     NSData * data=[[NSData alloc] initWithContentsOfURL:url];
     NSString * stroka=[[NSString alloc] initWithData:data encoding:NSWindowsCP1251StringEncoding];
-    parser=[[HTMLParser alloc] initWithString:stroka error:&error];
+    if ([type isEqualToString:kCurrent])
+        parserCurrent=[[HTMLParser alloc] initWithString:stroka error:&error];
+    else
+        parserForcast=[[HTMLParser alloc] initWithString:stroka error:&error];
+    
     int errorcode=0;
     if (error)
     {
@@ -43,12 +49,15 @@
 
 - (CLCityWeather *)getCurrentWeatherForCity:(NSString *)city
 {
-    int error = [self downloadDataForCity:city andType:@"/current.html" inParser:parserCurrent];
+    int error = [self downloadDataForCity:city andType:kCurrent];
     if (error)
         return nil;
     
     CLCityWeather * currentWeather=[[CLCityWeather alloc] init];
+    NSLog(@"%@",[[parserCurrent doc] allContents]);
     
+    
+    //http://pogodavtomske.ru/current.html
     //code parsing cite and write data in currentWeather
     
     
@@ -57,7 +66,7 @@
 
 - (NSMutableArray *)getForecastForCity:(NSString *)city
 {
-    int error = [self downloadDataForCity:city andType:@"/forecast10.html" inParser:parserForcast];
+    int error = [self downloadDataForCity:city andType:kForecast];
     if (error)
         return nil;
     NSMutableArray * forecast=[NSMutableArray array];
