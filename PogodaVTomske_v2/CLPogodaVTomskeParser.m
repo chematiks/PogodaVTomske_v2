@@ -54,7 +54,7 @@
         return nil;
     
     CLCityWeather * currentWeather=[[CLCityWeather alloc] init];
-    NSLog(@"%@",[[parserCurrent doc] allContents]);
+ //   NSLog(@"%@",[[parserCurrent doc] allContents]);
     
     
     //http://pogodavtomske.ru/current.html

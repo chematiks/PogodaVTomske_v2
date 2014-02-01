@@ -20,6 +20,7 @@
 @interface CLViewController ()
 {
     NSMutableArray * cellIdArray;
+    UIRefreshControl * pullToRefresh;
 }
 @end
 
@@ -36,8 +37,32 @@
                  @"CLMapCell",
                  @"CLSunAndMoonCell",
                  @"CLWindAndPressureCell", nil];
-    //[self.tableViewMain setDecelerationRate:UIScrollViewDecelerationRateFast];
+    
+    
+    pullToRefresh=[[UIRefreshControl alloc] init];
+    
+    pullToRefresh.tintColor=[UIColor blueColor];
+    UIFont * font=[UIFont fontWithName:@"HelveticaNeue-Light" size:13];
+
+    UILabel * pullToRefreshTitle=[[UILabel alloc] initWithFrame:CGRectMake(175, -60, 300, 100)];
+    pullToRefreshTitle.font=font;
+    pullToRefreshTitle.textColor=[UIColor blueColor];
+    pullToRefreshTitle.text=@"Потяни чтобы обновить!";
+    [self.tableViewMain addSubview:pullToRefreshTitle];
+    
+    [pullToRefresh addTarget:self action:@selector(beginRefreshing) forControlEvents:UIControlEventValueChanged];
+    
+    [self.tableViewMain addSubview:pullToRefresh];
+    
+    [self.tableViewMain setDecelerationRate:UIScrollViewDecelerationRateFast];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void) beginRefreshing
+{
+    NSLog(@"UPDATE");
+    [pullToRefresh endRefreshing];
+
 }
 
 - (void)didReceiveMemoryWarning
