@@ -61,8 +61,18 @@
     
     HTMLNode * currentHTML2 = [currentHTML findChildWithAttribute:@"width" matchingName:@"640" allowPartial:YES];
     
-    NSArray * array=[currentHTML2 findChildrenOfClass:@"tbody"];
+    NSArray * array=[currentHTML2 findChildTags:@"tr"];
     
+    
+    currentWeather = [self getCurrentTemp:array[0] in:currentWeather];
+    
+    
+   /* for (HTMLNode * node in array) {
+        NSLog(@"%@",[node tagName]);
+        NSLog(@"%@",[node allContents]);
+        
+    }
+    */
     //http://pogodavtomske.ru/current.html
     //code parsing cite and write data in currentWeather
     
@@ -70,8 +80,43 @@
     return currentWeather;
 }
 
+-(CLCityWeather *) getCurrentTemp:(HTMLNode *) html in:(CLCityWeather *) weather
+{
+    NSRange range;
+    NSLog(@"%@",[html rawContents]);
+    NSArray * child=[html findChildTags:@"td"];
+    for (int i=0; i < child.count-1; i++) {
+        NSString * currentNode = [child[i] allContents];
+        range = [currentNode rangeOfString:@"Температура"];
+        if (range.length >0)
+        {
+            NSLog(@"%@",[child[i+1] allContents]);
+           // NSRange rangeFirstSymbol = [child[i+1] rangeOfString:@" "];
+           // NSRange rangeC = [child[i+1] rangeOfString:@"°c"];
+           // weather.currentTemp = [];
+        }
+    }
+   // HTMLNode * node = [html findChildTag:@"<#string#>"];
+    
+   // NSLog(@"%@",[node rawContents]);
+    
+    return weather;
+}
 
-
+-(NSString *) removeTrashSpaceInString:(NSString *)string
+{
+    BOOL endRemove = NO;
+    int i=0;
+    while (!endRemove) {
+        if ([[string substringFromIndex:i] isEqualToString:@" "]) {
+          //  string = [string ];
+            
+        }
+        else
+            endRemove=YES;
+    }
+    
+}
 
 
 - (NSMutableArray *)getForecastForCity:(NSString *)city
