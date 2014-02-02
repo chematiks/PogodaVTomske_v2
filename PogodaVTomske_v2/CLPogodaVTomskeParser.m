@@ -52,10 +52,16 @@
     int error = [self downloadDataForCity:city andType:kCurrent];
     if (error)
         return nil;
-    
     CLCityWeather * currentWeather=[[CLCityWeather alloc] init];
- //   NSLog(@"%@",[[parserCurrent doc] allContents]);
     
+    HTMLNode * currentHTML=[self getHardCore:parserCurrent];
+    
+    currentWeather.city=city;
+    currentWeather.timeLoadWeather=[NSDate date];
+    
+    HTMLNode * currentHTML2 = [currentHTML findChildWithAttribute:@"width" matchingName:@"640" allowPartial:YES];
+    
+    NSArray * array=[currentHTML2 findChildrenOfClass:@"tbody"];
     
     //http://pogodavtomske.ru/current.html
     //code parsing cite and write data in currentWeather
@@ -64,6 +70,10 @@
     return currentWeather;
 }
 
+
+
+
+
 - (NSMutableArray *)getForecastForCity:(NSString *)city
 {
     int error = [self downloadDataForCity:city andType:kForecast];
@@ -71,12 +81,18 @@
         return nil;
     NSMutableArray * forecast=[NSMutableArray array];
     
+   
     //code parsing cite and write data in array
     
     return forecast;
 }
 
-
+-(HTMLNode *) getHardCore:(HTMLParser *) parser
+{
+    HTMLNode * currentHTMLDoc=[parser doc];
+    HTMLNode * result = [currentHTMLDoc findChildWithAttribute:@"class" matchingName:@"block rc5 b2" allowPartial:NO];
+    return result;
+}
 
 
 /*

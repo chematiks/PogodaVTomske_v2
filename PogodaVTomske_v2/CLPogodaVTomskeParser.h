@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CLCityWeather.h"
+#import "CLForecastOnDay.h"
 
 @interface CLPogodaVTomskeParser : NSObject
 

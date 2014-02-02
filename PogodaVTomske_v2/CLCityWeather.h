@@ -23,7 +23,7 @@
 @property (nonatomic) float                   humidityAir;
 @property (nonatomic,retain) NSString *       magneticStorms;
 @property (nonatomic,retain) NSString *       moonImage;
-@property (nonatomic,retain) NSMutableArray * forecastFor10Days;
+//@property (nonatomic,retain) NSMutableArray * forecastFor10Days;
 
 
 @end
