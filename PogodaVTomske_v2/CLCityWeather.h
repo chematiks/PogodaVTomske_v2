@@ -10,13 +10,13 @@
 
 @interface CLCityWeather : NSObject
 
-@property (nonatomic, retain) NSString *      city;
-@property (nonatomic,retain) NSDate *         timeLoadWeather;
-@property (nonatomic) float                   currentTemp;
+@property (nonatomic, retain) NSString *      city;                     //+
+@property (nonatomic,retain) NSDate *         timeLoadWeather;          //+
+@property (nonatomic) float                   currentTemp;              //+
 @property (nonatomic,retain) NSString *       currentCloudImg;
 @property (nonatomic,retain) NSString *       currentCloudText;
-@property (nonatomic) float                   currentSpeedWind;
-@property (nonatomic,retain) NSString *       currentWindDirection;
+@property (nonatomic) float                   currentSpeedWind;         //+
+@property (nonatomic,retain) NSString *       currentWindDirection;     //+
 @property (nonatomic) float                   currentPressure;
 @property (nonatomic,retain) NSDate *         timeSunSet;
 @property (nonatomic,retain) NSDate *         timeSunrise;

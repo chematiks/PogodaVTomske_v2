@@ -90,32 +90,52 @@
         range = [currentNode rangeOfString:@"Температура"];
         if (range.length >0)
         {
-            NSLog(@"%@",[child[i+1] allContents]);
-           // NSRange rangeFirstSymbol = [child[i+1] rangeOfString:@" "];
-           // NSRange rangeC = [child[i+1] rangeOfString:@"°c"];
-           // weather.currentTemp = [];
+            NSString * currentTempString=[child[i+1] allContents];
+            currentTempString = [self removeTrashSpaceInString:currentTempString];
+            weather.currentTemp = [currentTempString floatValue];
+            range.length = 0;
         }
+        range = [currentNode rangeOfString:@"Ветер"];
+        if (range.length > 0)
+        {
+            NSString * currentSpeedWind = [child[i+1] allContents];
+            currentSpeedWind = [self removeTrashSpaceInString:currentSpeedWind];
+            weather.currentSpeedWind = [currentSpeedWind floatValue];
+            range.length=0;
+            
+            NSString * currentWindDirection = [currentSpeedWind substringFromIndex:10];
+            currentWindDirection = [self removeTrashSpaceInString:currentWindDirection];
+            weather.currentWindDirection = currentWindDirection;
+            
+            
+        }
+        
     }
-   // HTMLNode * node = [html findChildTag:@"<#string#>"];
-    
-   // NSLog(@"%@",[node rawContents]);
-    
+
     return weather;
 }
 
 -(NSString *) removeTrashSpaceInString:(NSString *)string
 {
+  //  NSLog(@"%@",string);
+    BOOL beginRemove = NO;
     BOOL endRemove = NO;
-    int i=0;
-    while (!endRemove) {
-        if ([[string substringFromIndex:i] isEqualToString:@" "]) {
-          //  string = [string ];
-            
-        }
+    do {
+        NSString * symbolBegin = [string substringToIndex:1];
+        NSString * symbolEnd = [string substringFromIndex:[string length]-1];
+        if (([symbolBegin isEqualToString:@" "] || [symbolBegin isEqualToString:@"\n"]) && !beginRemove)
+            string = [string substringFromIndex:1];
         else
-            endRemove=YES;
+            beginRemove = YES;
+        
+        if (([symbolEnd isEqualToString:@" "] || [symbolEnd isEqualToString:@"\n"]) && !endRemove)
+            string = [string substringToIndex:[string length]-1];
+        else
+            endRemove = YES;
     }
-    
+    while (!(endRemove && beginRemove));
+   // NSLog(@"%@",string);
+    return string;
 }
 
 
