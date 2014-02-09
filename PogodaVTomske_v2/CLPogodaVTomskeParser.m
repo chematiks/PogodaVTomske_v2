@@ -14,6 +14,11 @@
 #define kCurrent @"current.html"
 #define kForecast @"forecast10.html"
 
+#define kPathCloudImage @"cur_weather/"
+#define kPathImage @"/images/"
+#define kPathMoonImage @"moons/"
+#define kPNG @".png"
+
 @interface CLPogodaVTomskeParser ()
 {
     HTMLParser * parserCurrent;
@@ -66,6 +71,9 @@
     
     currentWeather = [self getCurrentTemp:array[0] in:currentWeather];
     
+    currentWeather = [self getSunAndMoonInfo:array[1] in:currentWeather];
+    
+    
     
    /* for (HTMLNode * node in array) {
         NSLog(@"%@",[node tagName]);
@@ -83,10 +91,24 @@
 -(CLCityWeather *) getCurrentTemp:(HTMLNode *) html in:(CLCityWeather *) weather
 {
     NSRange range;
-    NSLog(@"%@",[html rawContents]);
+    //NSLog(@"%@",[html rawContents]);
     NSArray * child=[html findChildTags:@"td"];
     for (int i=0; i < child.count-1; i++) {
+        NSString * currentNodeRow = [child[i] rawContents];
+      //  NSLog(@"%@",currentNodeRow);
+        range = [currentNodeRow rangeOfString:kPathCloudImage];
+        if (range.length > 0)
+            weather.currentCloudImg = [self findImageURLWithPath:kPathCloudImage inHTML:child[i]];
+        
         NSString * currentNode = [child[i] allContents];
+        //NSLog(@"%@",currentNode);
+        range = [self foundDayOfTheWeek:currentNode];
+        if (range.length > 0) {
+            NSString * currentCloudText=[currentNode substringFromIndex:range.location+55];
+            currentCloudText = [self removeTrashSpaceInString:currentCloudText];
+            weather.currentCloudText = currentCloudText;
+        }
+
         range = [currentNode rangeOfString:@"Температура"];
         if (range.length >0)
         {
@@ -106,13 +128,81 @@
             NSString * currentWindDirection = [currentSpeedWind substringFromIndex:10];
             currentWindDirection = [self removeTrashSpaceInString:currentWindDirection];
             weather.currentWindDirection = currentWindDirection;
+            range.length = 0;
+        }
+        
+        
+        
+    }
+
+    return weather;
+}
+
+-(CLCityWeather *) getSunAndMoonInfo:(HTMLNode *) html in:(CLCityWeather *) weather
+{
+    NSLog(@"%@",[html rawContents]);
+    
+    NSRange range;
+    
+    weather.moonImage = [self findImageURLWithPath:kPathMoonImage inHTML:html];
+    
+ 
+    NSArray * child=[html findChildTags:@"td"];
+    for (int i=0; i < child.count-1; i++) {
+        NSString * currentNodeRow = [child[i] rawContents];
+        range = [currentNodeRow rangeOfString:@"Солнце"];
+        if (range.length > 0)
+        {
+            NSArray * child2=[child[i+1] findChildTags:@"span"];
+            weather.timeSunrise=[child2[0] allContents];
+            weather.timeSunSet=[child2[1] allContents];
             
             
         }
         
     }
-
     return weather;
+}
+
+-(NSString *) findImageURLWithPath:(NSString *) path inHTML:(HTMLNode *) html
+{
+    NSString * rawContents = [html rawContents];
+    
+    NSString * string = [NSString stringWithFormat:@"%@%@",kPathImage,path];
+    
+    NSRange rangeBegin = [rawContents rangeOfString:string];
+    NSRange rangeEnd = [rawContents rangeOfString:kPNG];
+    
+    NSRange rangeResult;
+    
+    rangeResult.location = rangeBegin.location;
+    
+    rangeResult.length = (rangeEnd.location + kPNG.length) - rangeResult.location;
+    
+    NSString * result = [rawContents substringWithRange:rangeResult];
+    
+    return result;
+}
+
+-(NSRange) foundDayOfTheWeek:(NSString *) string
+{
+    NSRange range;
+    range = [string rangeOfString:@"Понедельник"];
+    if (range.length == 0){
+        range = [string rangeOfString:@"Вторник"];
+        if (range.length == 0) {
+            range = [string rangeOfString:@"Среда"];
+            if (range.length > 0) {
+                range = [string rangeOfString:@"Четверг"];
+                if (range.length > 0) {
+                    range = [string rangeOfString:@"Пятница"];
+                    if (range.length > 0) {
+                        return range;
+                        range = [string rangeOfString:@"Суббота"];
+                            if (range.length > 0)
+                                return range;}}}}}
+    range = [string rangeOfString:@"Воскресенье"];
+    return range;
 }
 
 -(NSString *) removeTrashSpaceInString:(NSString *)string
@@ -123,15 +213,21 @@
     do {
         NSString * symbolBegin = [string substringToIndex:1];
         NSString * symbolEnd = [string substringFromIndex:[string length]-1];
-        if (([symbolBegin isEqualToString:@" "] || [symbolBegin isEqualToString:@"\n"]) && !beginRemove)
+        if (([symbolBegin isEqualToString:@" "]
+             || [symbolBegin isEqualToString:@"\n"]
+             || [symbolBegin isEqualToString:@"\t"]) && !beginRemove)
             string = [string substringFromIndex:1];
         else
             beginRemove = YES;
-        
-        if (([symbolEnd isEqualToString:@" "] || [symbolEnd isEqualToString:@"\n"]) && !endRemove)
+      //  NSLog(@"1 %hhd %d",beginRemove,string.length);
+
+        if (([symbolEnd isEqualToString:@" "]
+             || [symbolEnd isEqualToString:@"\n"]
+             || [symbolBegin isEqualToString:@"\t"]) && !endRemove)
             string = [string substringToIndex:[string length]-1];
         else
             endRemove = YES;
+       // NSLog(@"2 %hhd %d",endRemove,string.length);
     }
     while (!(endRemove && beginRemove));
    // NSLog(@"%@",string);

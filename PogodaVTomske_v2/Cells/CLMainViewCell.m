@@ -26,7 +26,7 @@
         cityLabel.textColor=[UIColor whiteColor];
         [self.contentView addSubview:cityLabel];
         
-        self.contentView.backgroundColor=[UIColor greenColor];
+        self.contentView.backgroundColor=[UIColor darkGrayColor];
         self.cityLabel=cityLabel;
     
         
