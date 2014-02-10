@@ -47,7 +47,7 @@
     if (error)
     {
         NSLog(@"Error: %@", error);
-        errorcode=error.code;
+        errorcode=(int)error.code;
     }
     return errorcode;
 }
@@ -73,6 +73,9 @@
     
     currentWeather = [self getSunAndMoonInfo:array[1] in:currentWeather];
     
+    currentWeather = [self getPressureAndHumidity:array[2] in:currentWeather];
+
+    currentWeather = [self getMagneticStorms:array[3] in:currentWeather];
     
     
    /* for (HTMLNode * node in array) {
@@ -91,25 +94,19 @@
 -(CLCityWeather *) getCurrentTemp:(HTMLNode *) html in:(CLCityWeather *) weather
 {
     NSRange range;
-    //NSLog(@"%@",[html rawContents]);
     NSArray * child=[html findChildTags:@"td"];
     for (int i=0; i < child.count-1; i++) {
+        //NSLog(@"%@",[child[i] rawContents]);
         NSString * currentNodeRow = [child[i] rawContents];
-      //  NSLog(@"%@",currentNodeRow);
-        range = [currentNodeRow rangeOfString:kPathCloudImage];
-        if (range.length > 0)
+        range = [currentNodeRow rangeOfString:[kPathImage stringByAppendingString:kPathCloudImage]];
+        if (range.length > 0){
             weather.currentCloudImg = [self findImageURLWithPath:kPathCloudImage inHTML:child[i]];
-        
-        NSString * currentNode = [child[i] allContents];
-        //NSLog(@"%@",currentNode);
-        range = [self foundDayOfTheWeek:currentNode];
-        if (range.length > 0) {
-            NSString * currentCloudText=[currentNode substringFromIndex:range.location+55];
+            NSArray * currentCloudTextNode = [[child[i] children][1] children];
+            NSString * currentCloudText = [currentCloudTextNode[7] rawContents];
             currentCloudText = [self removeTrashSpaceInString:currentCloudText];
             weather.currentCloudText = currentCloudText;
         }
-
-        range = [currentNode rangeOfString:@"Температура"];
+        range = [currentNodeRow rangeOfString:@"Температура"];
         if (range.length >0)
         {
             NSString * currentTempString=[child[i+1] allContents];
@@ -117,7 +114,7 @@
             weather.currentTemp = [currentTempString floatValue];
             range.length = 0;
         }
-        range = [currentNode rangeOfString:@"Ветер"];
+        range = [currentNodeRow rangeOfString:@"Ветер"];
         if (range.length > 0)
         {
             NSString * currentSpeedWind = [child[i+1] allContents];
@@ -140,12 +137,10 @@
 
 -(CLCityWeather *) getSunAndMoonInfo:(HTMLNode *) html in:(CLCityWeather *) weather
 {
-    NSLog(@"%@",[html rawContents]);
     
     NSRange range;
     
     weather.moonImage = [self findImageURLWithPath:kPathMoonImage inHTML:html];
-    
  
     NSArray * child=[html findChildTags:@"td"];
     for (int i=0; i < child.count-1; i++) {
@@ -156,11 +151,53 @@
             NSArray * child2=[child[i+1] findChildTags:@"span"];
             weather.timeSunrise=[child2[0] allContents];
             weather.timeSunSet=[child2[1] allContents];
-            
-            
+        }
+    }
+    return weather;
+}
+
+-(CLCityWeather *) getPressureAndHumidity:(HTMLNode *) html in:(CLCityWeather *) weather
+{
+   // NSLog(@"%@",[html rawContents]);
+    
+    NSRange range;
+    
+    NSArray * child=[html findChildTags:@"td"];
+    for (int i=0; i < child.count-1; i++) {
+        NSString * currentNodeRow = [child[i] rawContents];
+        range = [currentNodeRow rangeOfString:@"Давление"];
+        if (range.length > 0)
+        {
+            NSString * string=[child[i+1] allContents];
+            string = [self removeTrashSpaceInString:string];
+            weather.currentPressure = [string floatValue];
+            range.length = 0;
+        }
+        
+        range = [currentNodeRow rangeOfString:@"Влажность"];
+        if (range.length > 0)
+        {
+            NSString * string=[child[i+1] allContents];
+            string = [self removeTrashSpaceInString:string];
+            weather.humidityAir = [string floatValue];
+            range.length = 0;
         }
         
     }
+
+    
+    
+    return weather;
+}
+
+-(CLCityWeather *) getMagneticStorms:(HTMLNode *) html in:(CLCityWeather *) weather
+{
+    //NSLog(@"%@",[html rawContents]);
+    
+    NSArray * allTDTeg = [html findChildTags:@"td"];
+    NSString * magneticStorms = [allTDTeg[allTDTeg.count-1] allContents];
+    magneticStorms = [self removeTrashSpaceInString:magneticStorms];
+    weather.magneticStorms = magneticStorms;
     return weather;
 }
 
@@ -184,30 +221,9 @@
     return result;
 }
 
--(NSRange) foundDayOfTheWeek:(NSString *) string
-{
-    NSRange range;
-    range = [string rangeOfString:@"Понедельник"];
-    if (range.length == 0){
-        range = [string rangeOfString:@"Вторник"];
-        if (range.length == 0) {
-            range = [string rangeOfString:@"Среда"];
-            if (range.length > 0) {
-                range = [string rangeOfString:@"Четверг"];
-                if (range.length > 0) {
-                    range = [string rangeOfString:@"Пятница"];
-                    if (range.length > 0) {
-                        return range;
-                        range = [string rangeOfString:@"Суббота"];
-                            if (range.length > 0)
-                                return range;}}}}}
-    range = [string rangeOfString:@"Воскресенье"];
-    return range;
-}
 
 -(NSString *) removeTrashSpaceInString:(NSString *)string
 {
-  //  NSLog(@"%@",string);
     BOOL beginRemove = NO;
     BOOL endRemove = NO;
     do {
@@ -219,7 +235,6 @@
             string = [string substringFromIndex:1];
         else
             beginRemove = YES;
-      //  NSLog(@"1 %hhd %d",beginRemove,string.length);
 
         if (([symbolEnd isEqualToString:@" "]
              || [symbolEnd isEqualToString:@"\n"]
@@ -227,10 +242,8 @@
             string = [string substringToIndex:[string length]-1];
         else
             endRemove = YES;
-       // NSLog(@"2 %hhd %d",endRemove,string.length);
     }
     while (!(endRemove && beginRemove));
-   // NSLog(@"%@",string);
     return string;
 }
 
@@ -242,8 +255,32 @@
         return nil;
     NSMutableArray * forecast=[NSMutableArray array];
     
-   
+    HTMLNode * core = [self getHardCore:parserForcast];
+    
+    NSArray * findTableInCore = [core children];
+    NSArray * allStringInTable = [findTableInCore[9] findChildTags:@"tr"];
+    
+    for (HTMLNode * node in allStringInTable)
+    {
+       // NSLog(@"%@",[node rawContents] );
+        if ([[node rawContents] rangeOfString:@"125px"].length > 0) {
+            HTMLNode * currentNode = node;
+            CLForecastOnDay * currentDay = [self getForecastForOneDay:currentNode];
+            [forecast addObject:currentDay];
+        }
+
+    }
     //code parsing cite and write data in array
+    
+    return forecast;
+}
+
+-(CLForecastOnDay *) getForecastForOneDay: (HTMLNode *)currentNode
+{
+    CLForecastOnDay * forecast = [[CLForecastOnDay alloc] init];
+    
+    NSLog(@"%@",[currentNode rawContents]);
+    
     
     return forecast;
 }
@@ -252,83 +289,8 @@
 {
     HTMLNode * currentHTMLDoc=[parser doc];
     HTMLNode * result = [currentHTMLDoc findChildWithAttribute:@"class" matchingName:@"block rc5 b2" allowPartial:NO];
+
     return result;
 }
-
-
-/*
-
--(void) parserData
-{
-    self.baseURL=@"http://pogodavtomske.ru";
-    self.dataPogoda=[PTpogodaData alloc]; //создаем контейнер для данных
-    //инициализируем URL и парсим
-    [self downLoadData];
-    self.dataPogoda.forecastOnTenDay=[NSMutableArray array];
-    HTMLNode * todaybody=[self.todayParser body];
-    
-    HTMLNode * todayprognoz=[todaybody findChildWithAttribute:@"class" matchingName:@"center rc5" allowPartial:TRUE];
-    HTMLNode * todayprognoz2=[todayprognoz findChildWithAttribute:@"class" matchingName:@"block rc5 b2" allowPartial:TRUE];
-    HTMLNode * todayprognoz3=[todayprognoz2 findChildWithAttribute:@"class" matchingName:@"whdisplay" allowPartial:TRUE];
-    NSArray * todayarray=[todayprognoz3 findChildTags:@"tr"];
-    PTprognozNaDay * prognozToday=[[PTprognozNaDay alloc] parsWeatherForDay:[todayarray objectAtIndex:1]];
-    [self.dataPogoda.forecastOnTenDay addObject:prognozToday];
-    //Разбираем данные
-    HTMLNode * bodyNode = [self.parser body]; // получаем родительский элемент
-    // Берем id="temp" и получаем текущую температуру
-    HTMLNode *currentWeather = [bodyNode findChildWithAttribute:@"class" matchingName:@"right rc5" allowPartial:TRUE];
-    HTMLNode * currentWeather2=[currentWeather findChildTag:@"table"];
-    HTMLNode * tempNode=[currentWeather2 findChildTag:@"p"];
-    HTMLNode * tempNode2=[tempNode findChildTag:@"span"];
-    NSString * strTemp=[tempNode2 allContents];
-    NSRange range=[strTemp rangeOfString:@"c"];
-    range.length=range.location-1;
-    range.location=0;
-    self.dataPogoda.currentTemp=[strTemp substringWithRange:range];
-    //получаем текущую облачность
-    //картинка
-    NSString * currrentCloudImageURL=@" ";
-    HTMLNode * cloud=[currentWeather2 findChildTag:@"img"];
-    NSString * cloudImagestr=[cloud rawContents];
-    NSRange cloudRange;
-    NSUInteger posleURL=[cloudImagestr rangeOfString:@"title="].location;
-    NSUInteger peredURL=[cloudImagestr rangeOfString:@"src="].location;
-    cloudRange.length=ABS(posleURL -peredURL)-7;
-    cloudRange.location=peredURL+5;
-    currrentCloudImageURL=[cloudImagestr substringWithRange:cloudRange];
-    
-    //  NSLog(@"%@",currrentCloudImageURL);
-    
-    self.dataPogoda.currentCloudImage=[self.baseURL stringByAppendingString:currrentCloudImageURL];
-    //текст
-    NSArray * cloudFind=[currentWeather2 findChildTags:@"td"];
-    HTMLNode * cloudiness=[cloudFind objectAtIndex:3];
-    NSString * cloudStr=[cloudiness rawContents];
-    NSRange cloudRang;
-    NSUInteger posle=[cloudStr rangeOfString:@"</"].location;
-    NSUInteger pered=[cloudStr rangeOfString:@"\">"].location;
-    cloudRang.length=ABS(posle-pered)-17;
-    cloudRang.location=pered+10;
-    NSString* currentCloud=[cloudStr substringWithRange:cloudRang];
-    self.dataPogoda.currentOblachnost=currentCloud;
-    //---------------прогноз на сегодня--------------------
-    HTMLNode * weeklyprognoz=[bodyNode findChildWithAttribute:@"class" matchingName:@"center rc5" allowPartial:TRUE];
-    HTMLNode * weeklyprognoz2=[weeklyprognoz findChildWithAttribute:@"class" matchingName:@"block rc5 b2" allowPartial:TRUE];
-    HTMLNode * weeklyprognoz3=[weeklyprognoz2 findChildWithAttribute:@"class" matchingName:@"whdisplay" allowPartial:TRUE];
-    NSArray * weeklyprognoz4=[weeklyprognoz3 findChildTags:@"tr"];
-    for (HTMLNode * weather in weeklyprognoz4)
-    {
-        NSString * test=[weather rawContents];
-        if ([test rangeOfString:@"125px"].location<100)
-        {
-            PTprognozNaDay * prognoz1Day=[[PTprognozNaDay alloc] parsWeatherForDay:weather];
-            [self.dataPogoda.forecastOnTenDay addObject:prognoz1Day];
-        }
-    }
-
-}
-*/
-
-
 
 @end
