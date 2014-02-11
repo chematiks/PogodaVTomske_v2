@@ -14,4 +14,12 @@
 #define kCurrentTemp @"CurrentTemp"
 #define kCurrentCloudingText @"CurrentCloudingText"
 #define kCurrentCloudingImage @"CurrentCloudingImage"
-
+#define kPressure @"pressure"
+#define kHumidity @"humidity"
+#define kWindDirection @"windDirection"
+#define kWindSpeed @"windSpeed"
+#define kSunrire @"sunrise"
+#define kSunset @"sunset"
+#define kMagneticStorms @"magneticStorms"
+#define kMoonImage @"moonImage"
+#define kCity @"city"

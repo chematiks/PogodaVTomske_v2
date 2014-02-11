@@ -16,6 +16,9 @@
 #import "CLSunAndMoonCell.h"
 #import "CLWindAndPressureCell.h"
 #import "constants.h"
+#import "keys.h"
+#import "CLWeatherAPI.h"
+
 
 @interface CLViewController ()
 {
@@ -55,6 +58,15 @@
     [self.tableViewMain addSubview:pullToRefresh];
     
     [self.tableViewMain setDecelerationRate:UIScrollViewDecelerationRateFast];
+    
+    NSString * deviceType = [[UIDevice currentDevice] model];
+    if ([deviceType isEqualToString:@"iPad"]
+        || [deviceType isEqualToString:@"iPad Simulator"]) {
+        NSDictionary * weather = [[CLWeatherAPI sharedWeather] getCurrentWeather:@"tomsk"];
+        
+        [self configurateIpad:weather];
+    }
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -69,6 +81,64 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) configurateIpad: (NSDictionary *) weather
+{
+    _currentTempLabel.text = [[weather objectForKey:kCurrentTemp] stringValue];
+    _windDirection.text = [weather objectForKey:kWindDirection];
+    _currentCloidTextLabel.text = [weather objectForKey:kCurrentCloudingText];
+    
+    UIImage * image = [self getCloudImage:[weather objectForKey:kCurrentCloudingImage]];
+    _currentCloudImage.image = image;
+    /*
+    NSURL * url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@%@",
+                                      kHttp,
+                                      [weather objectForKey:kCity],
+                                      baseURL,
+                                      [weather objectForKey:kCurrentCloudingImage]]];
+    UIImage * currentCloudImage=;
+    */
+    
+}
+
+-(UIImage *) getCloudImage:(NSString *) clouding
+{
+    NSLog(@"'%@'",clouding);
+    
+    NSUInteger lengthRemove = kPathImage.length + kPathCloudImage.length;
+    
+    NSString * cloudNumber = [clouding substringFromIndex:lengthRemove];
+    NSLog(@"'%i'",[cloudNumber integerValue]);
+    
+    NSString * result;
+    int number=[cloudNumber intValue];
+    switch (number) {
+        case 1: result=@"sun-128.png"; break;
+        case 2: result=@"partly_cloudy_day-128.png"; break;
+        case 3: result=@"partly_cloudy_day-128.png"; break;
+        case 4: result=@"partly_cloudy_rain-128.png"; break;
+        case 5: result=@"partly_cloudy_rain-128.png"; break;
+        case 6: result=@"partly_cloudy_rain-128.png"; break;
+        case 7: result=@"storm-128.png"; break;
+        case 8: result=@"clouds-128.png"; break;
+        case 9: result=@"little_rain-128.png"; break;
+        case 10: result=@"little_rain-128.png"; break;
+        case 11: result=@"little_rain-128.png"; break;
+        case 12: result=@"downpour-128.png"; break;
+        case 13: result=@"rain-128.png"; break;
+        case 14: result=@"rain-128.png"; break;
+        case 15: result=@"storm-128.png"; break;
+        case 16: result=@"clouds-128.png"; break;
+        case 17: result=@"partly_cloudy_day-128.png"; break;
+        case 18: result=@"partly_cloudy_day-128.png"; break;
+        case 19: result=@"clouds-128.png"; break;
+        case 20: result=@"sun-128.png"; break;
+        default: break;
+    }
+    
+    
+    return [UIImage imageNamed:result];
 }
 
 #pragma mark - 

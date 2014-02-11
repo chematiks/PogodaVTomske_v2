@@ -24,3 +24,12 @@
 #define hCLSunAndMoonCell 120
 
 #define hCLWindAndPressureCell 120
+
+#define kHttp @"http://"
+#define baseURL @"pogodavtomske.ru/"
+#define kCurrent @"current.html"
+#define kForecast @"forecast10.html"
+#define kPathCloudImage @"cur_weather/"
+#define kPathImage @"/images/"
+#define kPathMoonImage @"moons/"
+#define kPNG @".png"

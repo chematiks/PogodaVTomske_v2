@@ -9,15 +9,10 @@
 #import "CLPogodaVTomskeParser.h"
 #import "HTMLParser.h"
 #import "HTMLNode.h"
+#import "constants.h"
 
-#define baseURL @"pogodavtomske.ru/"
-#define kCurrent @"current.html"
-#define kForecast @"forecast10.html"
 
-#define kPathCloudImage @"cur_weather/"
-#define kPathImage @"/images/"
-#define kPathMoonImage @"moons/"
-#define kPNG @".png"
+
 
 @interface CLPogodaVTomskeParser ()
 {
@@ -35,7 +30,7 @@
     if ([city isEqualToString:@"tomsk"]) city=@"";
     if (city.length >0)
         city=[city stringByAppendingString:@"."];
-    NSURL * url=[NSURL URLWithString:[NSString stringWithFormat:@"http://%@%@%@",city,baseURL,type]];
+    NSURL * url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@%@",kHttp,city,baseURL,type]];
     NSData * data=[[NSData alloc] initWithContentsOfURL:url];
     NSString * stroka=[[NSString alloc] initWithData:data encoding:NSWindowsCP1251StringEncoding];
     if ([type isEqualToString:kCurrent])
