@@ -85,31 +85,50 @@
 
 -(void) configurateIpad: (NSDictionary *) weather
 {
+    _cityLabel.text = [weather objectForKey:kCity];
     _currentTempLabel.text = [[weather objectForKey:kCurrentTemp] stringValue];
     _windDirection.text = [weather objectForKey:kWindDirection];
     _currentCloidTextLabel.text = [weather objectForKey:kCurrentCloudingText];
     
     UIImage * image = [self getCloudImage:[weather objectForKey:kCurrentCloudingImage]];
     _currentCloudImage.image = image;
-    /*
-    NSURL * url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@%@",
+    _currentWindSpeedLabel.text = [[weather objectForKey:kWindSpeed] stringValue];
+    _pressureLabel.text = [[weather objectForKey:kPressure] stringValue];
+    _humidityLabel.text = [[weather objectForKey:kHumidity] stringValue];
+    _sunriseLabel.text = [weather objectForKey:kSunrire];
+    _sunsetLabel.text = [weather objectForKey:kSunset];
+    _magneticStormsLabel.text = [weather objectForKey:kMagneticStorms];
+    
+    NSURL * url;
+    if (![[weather objectForKey:kCity] isEqualToString:@"tomsk"])
+        url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@%@",
                                       kHttp,
                                       [weather objectForKey:kCity],
                                       baseURL,
-                                      [weather objectForKey:kCurrentCloudingImage]]];
-    UIImage * currentCloudImage=;
-    */
+                                      [weather objectForKey:kMoonImage]]];
+    else
+        url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@",
+                                          kHttp,
+                                          baseURL,
+                                          [weather objectForKey:kMoonImage]]];
+    
+   
+    
+    //NSLog(@"%@",url);
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL:url];
+    UIImage * moonImage = [[UIImage alloc] initWithData:imageData];
+    _moonImage.image = moonImage;
     
 }
 
 -(UIImage *) getCloudImage:(NSString *) clouding
 {
-    NSLog(@"'%@'",clouding);
+    // NSLog(@"'%@'",clouding);
     
     NSUInteger lengthRemove = kPathImage.length + kPathCloudImage.length;
     
     NSString * cloudNumber = [clouding substringFromIndex:lengthRemove];
-    NSLog(@"'%i'",[cloudNumber integerValue]);
+  //  NSLog(@"'%i'",[cloudNumber integerValue]);
     
     NSString * result;
     int number=[cloudNumber intValue];

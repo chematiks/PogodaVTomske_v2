@@ -622,7 +622,6 @@
 				926C899F1876A05A00F90566 /* CLSunAndMoonCell.m */,
 				926C89A11876A0AB00F90566 /* CLWindAndPressureCell.h */,
 				926C89A21876A0AB00F90566 /* CLWindAndPressureCell.m */,
-				929F6E0B18892DC7002C999D /* constants.h */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -668,6 +667,7 @@
 				84016C3E188CD7EB0070F64B /* Controller */,
 				92DB1C2E187464D300EB695B /* CLAppDelegate.h */,
 				92DB1C2F187464D300EB695B /* CLAppDelegate.m */,
+				929F6E0B18892DC7002C999D /* constants.h */,
 				8460CEF418A9DD3C00DAA7C2 /* Main_iPad.storyboard */,
 				92DB1C31187464D300EB695B /* Main_iPhone.storyboard */,
 				92DB1C3A187464D300EB695B /* Images.xcassets */,

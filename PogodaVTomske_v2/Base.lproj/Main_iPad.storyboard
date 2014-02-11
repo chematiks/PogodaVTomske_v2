@@ -149,6 +149,7 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="cityLabel" destination="lWm-1C-uJC" id="fL3-7d-cfv"/>
                         <outlet property="currentCloidTextLabel" destination="rG6-lc-Or3" id="tl5-Wp-tAF"/>
                         <outlet property="currentCloudImage" destination="gN9-0S-fdh" id="aG7-U4-nGp"/>
                         <outlet property="currentTempLabel" destination="tnx-8c-VfN" id="iTF-2B-bmB"/>

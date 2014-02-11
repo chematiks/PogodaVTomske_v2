@@ -153,10 +153,7 @@
 
 -(CLCityWeather *) getPressureAndHumidity:(HTMLNode *) html in:(CLCityWeather *) weather
 {
-   // NSLog(@"%@",[html rawContents]);
-    
     NSRange range;
-    
     NSArray * child=[html findChildTags:@"td"];
     for (int i=0; i < child.count-1; i++) {
         NSString * currentNodeRow = [child[i] rawContents];
@@ -179,8 +176,6 @@
         }
         
     }
-
-    
     
     return weather;
 }
@@ -261,6 +256,9 @@
         if ([[node rawContents] rangeOfString:@"125px"].length > 0) {
             HTMLNode * currentNode = node;
             CLForecastOnDay * currentDay = [self getForecastForOneDay:currentNode];
+            if (!currentDay.minTemp) {
+                NSLog(@"not data forecast on the day!!!");
+            }
             [forecast addObject:currentDay];
         }
 
@@ -274,8 +272,17 @@
 {
     CLForecastOnDay * forecast = [[CLForecastOnDay alloc] init];
     
-    NSLog(@"%@",[currentNode rawContents]);
     
+    NSArray * arrayColomn = [currentNode findChildTags:@"td"];
+    
+    forecast.cloudImg = [self findImageURLWithPath:kPathForecastCloud inHTML:currentNode];
+
+    NSArray * arrayTemp = [arrayColomn[2] findChildTags:@"span"];
+    if (arrayTemp.count > 1) {
+        forecast.minTemp = [[arrayTemp[0] allContents] floatValue];
+        forecast.maxTemp = [[arrayTemp[1] allContents] floatValue];
+    }else
+        forecast.maxTemp = [[arrayTemp[0] allContents] floatValue];
     
     return forecast;
 }

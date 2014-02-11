@@ -11,6 +11,7 @@
 @interface CLViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableViewMain;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *currentTempLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentCloidTextLabel;

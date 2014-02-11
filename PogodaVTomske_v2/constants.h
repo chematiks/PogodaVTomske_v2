@@ -30,6 +30,7 @@
 #define kCurrent @"current.html"
 #define kForecast @"forecast10.html"
 #define kPathCloudImage @"cur_weather/"
-#define kPathImage @"/images/"
+#define kPathForecastCloud @"weathers/"
+#define kPathImage @"images/"
 #define kPathMoonImage @"moons/"
 #define kPNG @".png"
