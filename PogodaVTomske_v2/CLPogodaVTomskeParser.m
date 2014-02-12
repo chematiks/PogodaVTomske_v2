@@ -240,7 +240,7 @@
 
 - (NSMutableArray *)getForecastForCity:(NSString *)city
 {
-    int error = [self downloadDataForCity:city andType:kForecast];
+    int error = [self downloadDataForCity:city andType:kForecastHtml];
     if (error)
         return nil;
     NSMutableArray * forecast=[NSMutableArray array];

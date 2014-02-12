@@ -23,3 +23,4 @@
 #define kMagneticStorms @"magneticStorms"
 #define kMoonImage @"moonImage"
 #define kCity @"city"
+#define kForecast @"forecast"

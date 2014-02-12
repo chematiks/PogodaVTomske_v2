@@ -28,7 +28,7 @@
 #define kHttp @"http://"
 #define baseURL @"pogodavtomske.ru/"
 #define kCurrent @"current.html"
-#define kForecast @"forecast10.html"
+#define kForecastHtml @"forecast10.html"
 #define kPathCloudImage @"cur_weather/"
 #define kPathForecastCloud @"weathers/"
 #define kPathImage @"images/"

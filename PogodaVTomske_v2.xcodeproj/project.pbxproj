@@ -153,6 +153,8 @@
 		8460D00518AA33E200DAA7C2 /* sun-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8460CF7D18AA33E200DAA7C2 /* sun-50.png */; };
 		8460D00618AA33E200DAA7C2 /* sun-512_.png in Resources */ = {isa = PBXBuildFile; fileRef = 8460CF7E18AA33E200DAA7C2 /* sun-512_.png */; };
 		8460D00718AA33E200DAA7C2 /* sun-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 8460CF7F18AA33E200DAA7C2 /* sun-75.png */; };
+		8460D00D18AB6A2100DAA7C2 /* CLIpadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8460D00C18AB6A2100DAA7C2 /* CLIpadViewController.m */; };
+		8460D01018AB84CE00DAA7C2 /* CLiPadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8460D00F18AB84CE00DAA7C2 /* CLiPadTableViewCell.m */; };
 		926C898E18769ACD00F90566 /* CLMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C898D18769ACD00F90566 /* CLMainViewCell.m */; };
 		926C899718769FC500F90566 /* CLDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C899618769FC500F90566 /* CLDetailsCell.m */; };
 		926C899A1876A02000F90566 /* CLForecastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C89991876A02000F90566 /* CLForecastCell.m */; };
@@ -342,6 +344,10 @@
 		8460CF7D18AA33E200DAA7C2 /* sun-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sun-50.png"; sourceTree = "<group>"; };
 		8460CF7E18AA33E200DAA7C2 /* sun-512_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sun-512_.png"; sourceTree = "<group>"; };
 		8460CF7F18AA33E200DAA7C2 /* sun-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sun-75.png"; sourceTree = "<group>"; };
+		8460D00B18AB6A2100DAA7C2 /* CLIpadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLIpadViewController.h; sourceTree = "<group>"; };
+		8460D00C18AB6A2100DAA7C2 /* CLIpadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLIpadViewController.m; sourceTree = "<group>"; };
+		8460D00E18AB84CE00DAA7C2 /* CLiPadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLiPadTableViewCell.h; sourceTree = "<group>"; };
+		8460D00F18AB84CE00DAA7C2 /* CLiPadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLiPadTableViewCell.m; sourceTree = "<group>"; };
 		926C898C18769ACD00F90566 /* CLMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLMainViewCell.h; path = Cells/CLMainViewCell.h; sourceTree = "<group>"; };
 		926C898D18769ACD00F90566 /* CLMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLMainViewCell.m; path = Cells/CLMainViewCell.m; sourceTree = "<group>"; };
 		926C899518769FC500F90566 /* CLDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLDetailsCell.h; path = Cells/CLDetailsCell.h; sourceTree = "<group>"; };
@@ -420,6 +426,8 @@
 			isa = PBXGroup;
 			children = (
 				926C89A41876A0B300F90566 /* Cells */,
+				8460D00E18AB84CE00DAA7C2 /* CLiPadTableViewCell.h */,
+				8460D00F18AB84CE00DAA7C2 /* CLiPadTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -429,6 +437,8 @@
 			children = (
 				92DB1C37187464D300EB695B /* CLViewController.h */,
 				92DB1C38187464D300EB695B /* CLViewController.m */,
+				8460D00B18AB6A2100DAA7C2 /* CLIpadViewController.h */,
+				8460D00C18AB6A2100DAA7C2 /* CLIpadViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -949,12 +959,14 @@
 				84016C4B188D14B80070F64B /* CLForecastOnDay.m in Sources */,
 				92DB1C30187464D300EB695B /* CLAppDelegate.m in Sources */,
 				84016C51188D21F50070F64B /* CLWeatherDataManager.m in Sources */,
+				8460D00D18AB6A2100DAA7C2 /* CLIpadViewController.m in Sources */,
 				84016C68188E81D70070F64B /* CLPogodaVTomskeParser.m in Sources */,
 				926C898E18769ACD00F90566 /* CLMainViewCell.m in Sources */,
 				84016C45188D0DA40070F64B /* CLCityWeather.m in Sources */,
 				926C899D1876A03D00F90566 /* CLMapCell.m in Sources */,
 				926C899718769FC500F90566 /* CLDetailsCell.m in Sources */,
 				84016C41188CD8830070F64B /* CLWeatherAPI.m in Sources */,
+				8460D01018AB84CE00DAA7C2 /* CLiPadTableViewCell.m in Sources */,
 				926C89A31876A0AB00F90566 /* CLWindAndPressureCell.m in Sources */,
 				92DB1C39187464D300EB695B /* CLViewController.m in Sources */,
 				84016C5D188D25A20070F64B /* HTMLParser.m in Sources */,
