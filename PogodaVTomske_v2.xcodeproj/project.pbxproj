@@ -348,6 +348,7 @@
 		8460D00C18AB6A2100DAA7C2 /* CLIpadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLIpadViewController.m; sourceTree = "<group>"; };
 		8460D00E18AB84CE00DAA7C2 /* CLiPadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLiPadTableViewCell.h; sourceTree = "<group>"; };
 		8460D00F18AB84CE00DAA7C2 /* CLiPadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLiPadTableViewCell.m; sourceTree = "<group>"; };
+		8460D01218ACD2A300DAA7C2 /* interfaceColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = interfaceColor.h; path = PogodaVTomske_v2/interfaceColor.h; sourceTree = "<group>"; };
 		926C898C18769ACD00F90566 /* CLMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLMainViewCell.h; path = Cells/CLMainViewCell.h; sourceTree = "<group>"; };
 		926C898D18769ACD00F90566 /* CLMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLMainViewCell.m; path = Cells/CLMainViewCell.m; sourceTree = "<group>"; };
 		926C899518769FC500F90566 /* CLDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLDetailsCell.h; path = Cells/CLDetailsCell.h; sourceTree = "<group>"; };
@@ -639,6 +640,7 @@
 		92DB1C13187464D300EB695B = {
 			isa = PBXGroup;
 			children = (
+				8460D01218ACD2A300DAA7C2 /* interfaceColor.h */,
 				92DB1C25187464D300EB695B /* PogodaVTomske_v2 */,
 				92DB1C47187464D300EB695B /* PogodaVTomske_v2Tests */,
 				92DB1C1E187464D300EB695B /* Frameworks */,

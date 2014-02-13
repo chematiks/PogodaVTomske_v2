@@ -37,9 +37,38 @@
     
     [self refreshCurrentWeather];
     
+    [self willAnimateRotationToInterfaceOrientation:UIInterfaceOrientationPortrait duration:0];
+    
     // Do any additional setup after loading the view.
 }
 
+-(void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    if (toInterfaceOrientation == UIInterfaceOrientationPortrait
+        || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+    {
+        _forecastTableView.frame = CGRectMake(0, 512, 768, 512);
+        _forecastTableView.rowHeight = 512/10;
+        
+    }
+    else
+    {
+        _forecastTableView.frame = CGRectMake(512, 0, 512, 768);
+        _forecastTableView.rowHeight = 768/10;
+    }
+    [_forecastTableView reloadData];
+    _forecastTableView re
+}
+
+-(void) makePortraitOrientationInterface
+{
+    
+}
+
+-(void) makeLandscapeOrientationInterface
+{
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -185,6 +214,7 @@
     
     cell.imageClouding.image = [self getCloudImage:forecast.cloudImg];
     return cell;
+    
 }
 
 @end
