@@ -35,7 +35,8 @@
                             [NSNumber numberWithFloat:currentWeather.humidityAir], kHumidity,
                             [NSNumber numberWithFloat:currentWeather.currentPressure], kPressure,
                             city, kCity,
-                            currentWeather.forecastFor10Days, kForecast,nil];
+                            currentWeather.forecastFor10Days, kForecast,
+                            currentWeather.timeLoadWeather, kTimeLoad , nil];
     
     return weather;
 }

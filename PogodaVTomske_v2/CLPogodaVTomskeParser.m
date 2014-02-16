@@ -281,9 +281,10 @@
     if (arrayTemp.count > 1) {
         forecast.minTemp = [[arrayTemp[0] allContents] floatValue];
         forecast.maxTemp = [[arrayTemp[1] allContents] floatValue];
-    }else
+    }else{
         forecast.maxTemp = [[arrayTemp[0] allContents] floatValue];
-    
+        forecast.minTemp = kNoForecast;
+    }
     return forecast;
 }
 

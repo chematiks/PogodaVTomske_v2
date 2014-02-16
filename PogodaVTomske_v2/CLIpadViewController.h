@@ -10,10 +10,13 @@
 
 @interface CLIpadViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIView *landscapeView;
+@property (weak, nonatomic) IBOutlet UIView *portraitView;
+
 - (IBAction)refreshData:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *loadTimeLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *currentTempLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentCloidTextLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *currentCloudImage;
@@ -26,8 +29,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *magneticStormsLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *moonImage;
 
+@property (weak, nonatomic) IBOutlet UIImageView *conturForecastTable;
 @property (weak, nonatomic) IBOutlet UITableView *forecastTableView;
+@property (weak, nonatomic) IBOutlet UITableView *portraitTableView;
 
-@property (nonatomic, weak) NSArray * forecastOn10Day;
+@property (weak, nonatomic) IBOutlet UIView *currentWeatherView;
+@property (weak, nonatomic) IBOutlet UIImageView *currentWeatherViewFon;
+@property (weak, nonatomic) IBOutlet UILabel *currentWeatherLabel;
+
+@property (nonatomic, strong) NSArray * forecastOn10Day;
 
 @end

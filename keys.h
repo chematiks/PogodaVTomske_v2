@@ -24,3 +24,4 @@
 #define kMoonImage @"moonImage"
 #define kCity @"city"
 #define kForecast @"forecast"
+#define kTimeLoad @"timeLoad"

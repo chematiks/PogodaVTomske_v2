@@ -12,6 +12,7 @@
 #import "CLWeatherAPI.h"
 #import "CLForecastOnDay.h"
 #import "CLiPadTableViewCell.h"
+#import "interfaceColor.h"
 
 @interface CLIpadViewController ()
 
@@ -34,41 +35,45 @@
     
     _forecastTableView.delegate = self;
     _forecastTableView.dataSource = self;
+    _portraitTableView.dataSource = self;
+    _portraitTableView.delegate = self;
     
     [self refreshCurrentWeather];
+    [self makeOrientationInterface:[[UIApplication sharedApplication] statusBarOrientation]];
     
-    [self willAnimateRotationToInterfaceOrientation:UIInterfaceOrientationPortrait duration:0];
+    _landscapeView.backgroundColor = cFon;
+    _cityLabel.textColor = cTextYellow;
+
+    _forecastTableView.separatorColor = cContur;
+    _forecastTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    _conturForecastTable.backgroundColor = cContur;
     
+    _currentWeatherView.backgroundColor = cContur;
+    _currentWeatherViewFon.backgroundColor = cFon;
+    _currentTempLabel.textColor = cTextYellow;
+    _currentCloidTextLabel.textColor = cTextGrey;
+    //_currentWeatherLabel.textColor = cTextGrey;
     // Do any additional setup after loading the view.
 }
 
--(void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    if (toInterfaceOrientation == UIInterfaceOrientationPortrait
-        || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
-    {
-        _forecastTableView.frame = CGRectMake(0, 512, 768, 512);
-        _forecastTableView.rowHeight = 512/10;
-        
-    }
-    else
-    {
-        _forecastTableView.frame = CGRectMake(512, 0, 512, 768);
-        _forecastTableView.rowHeight = 768/10;
-    }
-    [_forecastTableView reloadData];
-    _forecastTableView re
+    [self makeOrientationInterface:toInterfaceOrientation];
 }
 
--(void) makePortraitOrientationInterface
+-(void) makeOrientationInterface:(UIInterfaceOrientation)toInterfaceOrientation
 {
-    
+    if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation))
+    {
+        _portraitView.hidden = NO;
+        _landscapeView.hidden = YES;
+    }else{
+        _landscapeView.hidden = NO;
+        _portraitView.hidden = YES;
+    }
 }
 
--(void) makeLandscapeOrientationInterface
-{
-    
-}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -77,8 +82,10 @@
 
 -(void) configurateIpad: (NSDictionary *) weather
 {
+    _loadTimeLabel.text = [NSDateFormatter localizedStringFromDate:[weather objectForKey:kTimeLoad] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     _cityLabel.text = [weather objectForKey:kCity];
-    _currentTempLabel.text = [[weather objectForKey:kCurrentTemp] stringValue];
+    
+    _currentTempLabel.text = [[[weather objectForKey:kCurrentTemp] stringValue] stringByAppendingString:@"°"];
     _windDirection.text = [weather objectForKey:kWindDirection];
     _currentCloidTextLabel.text = [weather objectForKey:kCurrentCloudingText];
     
@@ -115,13 +122,8 @@
 
 -(UIImage *) getCloudImage:(NSString *) clouding
 {
-    // NSLog(@"'%@'",clouding);
-    
     NSUInteger lengthRemove = kPathImage.length + kPathCloudImage.length;
-    
     NSString * cloudNumber = [clouding substringFromIndex:lengthRemove];
-    //  NSLog(@"'%i'",[cloudNumber integerValue]);
-    
    
     NSString * result;
     int number=[cloudNumber intValue];
@@ -134,48 +136,37 @@
     }
     
     switch (number) {
-        case 1: result=@"sun-128.png"; break;
-        case 2: result=@"partly_cloudy_day-128.png"; break;
-        case 3: result=@"partly_cloudy_day-128.png"; break;
-        case 4: result=@"partly_cloudy_rain-128.png"; break;
-        case 5: result=@"partly_cloudy_rain-128.png"; break;
-        case 6: result=@"partly_cloudy_rain-128.png"; break;
-        case 7: result=@"storm-128.png"; break;
-        case 8: result=@"clouds-128.png"; break;
-        case 9: result=@"little_rain-128.png"; break;
-        case 10: result=@"little_rain-128.png"; break;
-        case 11: result=@"little_rain-128.png"; break;
-        case 12: result=@"downpour-128.png"; break;
-        case 13: result=@"rain-128.png"; break;
-        case 14: result=@"rain-128.png"; break;
-        case 15: result=@"storm-128.png"; break;
-        case 16: result=@"clouds-128.png"; break;
-        case 17: result=@"partly_cloudy_day-128.png"; break;
-        case 18: result=@"partly_cloudy_day-128.png"; break;
-        case 19: result=@"clouds-128.png"; break;
-        case 20: result=@"sun-128.png"; break;
+        case 1: result=@"sun-512_.png"; break;
+        case 2: result=@"partly_cloudy_day-512_.png"; break;
+        case 3: result=@"partly_cloudy_day-512_.png"; break;
+        case 4: result=@"partly_cloudy_rain-512_.png"; break;
+        case 5: result=@"partly_cloudy_rain-512_.png"; break;
+        case 6: result=@"partly_cloudy_rain-512_.png"; break;
+        case 7: result=@"storm-512_.png"; break;
+        case 8: result=@"clouds-512_.png"; break;
+        case 9: result=@"little_rain-512_.png"; break;
+        case 10: result=@"little_rain-512_.png"; break;
+        case 11: result=@"little_rain-512_.png"; break;
+        case 12: result=@"downpour-512_.png"; break;
+        case 13: result=@"rain-512_.png"; break;
+        case 14: result=@"rain-512_.png"; break;
+        case 15: result=@"storm-512_.png"; break;
+        case 16: result=@"clouds-512_.png"; break;
+        case 17: result=@"partly_cloudy_day-512_.png"; break;
+        case 18: result=@"partly_cloudy_day-512_.png"; break;
+        case 19: result=@"clouds-512_.png"; break;
+        case 20: result=@"sun-512_.png"; break;
         default: break;
     }
-    
-    
     return [UIImage imageNamed:result];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 -(void) refreshCurrentWeather
 {
     NSDictionary * weather = [[CLWeatherAPI sharedWeather] getCurrentWeather:@"tomsk"];
     [self configurateIpad:weather];
     _forecastOn10Day = [weather objectForKey:kForecast];
+    [_forecastTableView reloadData];
 }
 
 - (IBAction)refreshData:(id)sender
@@ -198,8 +189,16 @@
     if (cell==nil) {
         cell=[[CLiPadTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
+    cell.contentView.backgroundColor = cBackground;
     
     cell = [self configureCell: cell WithData:_forecastOn10Day[indexPath.row]];
+    cell.dayOfTheWeekLabel.text = [self getDayOfTheWeekForCellWithIndex:indexPath.row];
+    if (indexPath.row < 2)
+        cell.dayOfTheWeekLabel.textColor = cTextYellow;
+    else
+        cell.dayOfTheWeekLabel.textColor = cTextGrey;
+    cell.dayForecast.textColor = cTextYellow;
+    cell.nigthForecast.textColor = cTextGrey;
     
     return cell;
     
@@ -208,13 +207,38 @@
 -(CLiPadTableViewCell *) configureCell:(CLiPadTableViewCell *)cell WithData:(CLForecastOnDay *) forecast
 {
     
-    cell.dayForecast.text = [NSString stringWithFormat:@"%.0f",forecast.maxTemp];
-    cell.nigthForecast.text = [NSString stringWithFormat:@"%.0f",forecast.minTemp];
-   
-    
+    cell.dayForecast.text = [[NSString stringWithFormat:@"%.0f",forecast.maxTemp] stringByAppendingString:@"°"];
+    if (forecast.minTemp < kNoForecast)
+        cell.nigthForecast.text = [[NSString stringWithFormat:@"%.0f",forecast.minTemp] stringByAppendingString:@"°"];
+    else
+        cell.nigthForecast.text = @"";
     cell.imageClouding.image = [self getCloudImage:forecast.cloudImg];
     return cell;
     
+}
+
+-(NSString *) getDayOfTheWeekForCellWithIndex: (NSInteger) index
+{
+    switch (index) {
+        case 0: return @"Сегодня";
+        case 1: return @"Завтра";
+        //case 2: return @"Послезавтра";
+        default: break;
+    }
+    NSDate * date = [NSDate date];
+    NSDateFormatter * format=[[NSDateFormatter alloc] init];
+    [format setDateFormat:@"e"];
+    NSString * string=[format stringFromDate:date];
+    NSInteger numberDay=[string integerValue]+index;
+    numberDay = numberDay%7;
+    if (numberDay==2) return @"Понедельник";
+    if (numberDay==3) return @"Вторник";
+    if (numberDay==4) return @"Среда";
+    if (numberDay==5) return @"Четверг";
+    if (numberDay==6) return @"Пятница";
+    if (numberDay==0) return @"Суббота";
+    if (numberDay==1) return @"Воскресение";
+    return @"";
 }
 
 @end

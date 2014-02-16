@@ -34,3 +34,4 @@
 #define kPathImage @"images/"
 #define kPathMoonImage @"moons/"
 #define kPNG @".png"
+#define kNoForecast 12345

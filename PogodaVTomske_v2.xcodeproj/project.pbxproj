@@ -161,6 +161,7 @@
 		926C899D1876A03D00F90566 /* CLMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C899C1876A03D00F90566 /* CLMapCell.m */; };
 		926C89A01876A05A00F90566 /* CLSunAndMoonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C899F1876A05A00F90566 /* CLSunAndMoonCell.m */; };
 		926C89A31876A0AB00F90566 /* CLWindAndPressureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C89A21876A0AB00F90566 /* CLWindAndPressureCell.m */; };
+		92AEDD4118B125A700630385 /* reload-512_.png in Resources */ = {isa = PBXBuildFile; fileRef = 92AEDD4018B125A700630385 /* reload-512_.png */; };
 		92B91881188857B9006C62BA /* UITableViewCell+getHeightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B91880188857B9006C62BA /* UITableViewCell+getHeightCell.m */; };
 		92DB1C20187464D300EB695B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92DB1C1F187464D300EB695B /* Foundation.framework */; };
 		92DB1C22187464D300EB695B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92DB1C21187464D300EB695B /* CoreGraphics.framework */; };
@@ -348,7 +349,7 @@
 		8460D00C18AB6A2100DAA7C2 /* CLIpadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLIpadViewController.m; sourceTree = "<group>"; };
 		8460D00E18AB84CE00DAA7C2 /* CLiPadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLiPadTableViewCell.h; sourceTree = "<group>"; };
 		8460D00F18AB84CE00DAA7C2 /* CLiPadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLiPadTableViewCell.m; sourceTree = "<group>"; };
-		8460D01218ACD2A300DAA7C2 /* interfaceColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = interfaceColor.h; path = PogodaVTomske_v2/interfaceColor.h; sourceTree = "<group>"; };
+		8460D01218ACD2A300DAA7C2 /* interfaceColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = interfaceColor.h; sourceTree = "<group>"; };
 		926C898C18769ACD00F90566 /* CLMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLMainViewCell.h; path = Cells/CLMainViewCell.h; sourceTree = "<group>"; };
 		926C898D18769ACD00F90566 /* CLMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLMainViewCell.m; path = Cells/CLMainViewCell.m; sourceTree = "<group>"; };
 		926C899518769FC500F90566 /* CLDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLDetailsCell.h; path = Cells/CLDetailsCell.h; sourceTree = "<group>"; };
@@ -362,6 +363,7 @@
 		926C89A11876A0AB00F90566 /* CLWindAndPressureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLWindAndPressureCell.h; path = Cells/CLWindAndPressureCell.h; sourceTree = "<group>"; };
 		926C89A21876A0AB00F90566 /* CLWindAndPressureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLWindAndPressureCell.m; path = Cells/CLWindAndPressureCell.m; sourceTree = "<group>"; };
 		929F6E0B18892DC7002C999D /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		92AEDD4018B125A700630385 /* reload-512_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload-512_.png"; sourceTree = "<group>"; };
 		92B9187F188857B9006C62BA /* UITableViewCell+getHeightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+getHeightCell.h"; sourceTree = "<group>"; };
 		92B91880188857B9006C62BA /* UITableViewCell+getHeightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+getHeightCell.m"; sourceTree = "<group>"; };
 		92DB1C1C187464D300EB695B /* PogodaVTomske_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PogodaVTomske_v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -474,6 +476,7 @@
 		8460CEF718AA33E200DAA7C2 /* weather */ = {
 			isa = PBXGroup;
 			children = (
+				92AEDD4018B125A700630385 /* reload-512_.png */,
 				8460CEF818AA33E200DAA7C2 /* clouds-100.png */,
 				8460CEF918AA33E200DAA7C2 /* clouds-128.png */,
 				8460CEFA18AA33E200DAA7C2 /* clouds-25.png */,
@@ -640,7 +643,6 @@
 		92DB1C13187464D300EB695B = {
 			isa = PBXGroup;
 			children = (
-				8460D01218ACD2A300DAA7C2 /* interfaceColor.h */,
 				92DB1C25187464D300EB695B /* PogodaVTomske_v2 */,
 				92DB1C47187464D300EB695B /* PogodaVTomske_v2Tests */,
 				92DB1C1E187464D300EB695B /* Frameworks */,
@@ -680,6 +682,7 @@
 				92DB1C2E187464D300EB695B /* CLAppDelegate.h */,
 				92DB1C2F187464D300EB695B /* CLAppDelegate.m */,
 				929F6E0B18892DC7002C999D /* constants.h */,
+				8460D01218ACD2A300DAA7C2 /* interfaceColor.h */,
 				8460CEF418A9DD3C00DAA7C2 /* Main_iPad.storyboard */,
 				92DB1C31187464D300EB695B /* Main_iPhone.storyboard */,
 				92DB1C3A187464D300EB695B /* Images.xcassets */,
@@ -884,6 +887,7 @@
 				8460CF9618AA33E200DAA7C2 /* fog_day-512_.png in Resources */,
 				8460CFE418AA33E200DAA7C2 /* sleet-32.png in Resources */,
 				8460CFDA18AA33E200DAA7C2 /* rain-25.png in Resources */,
+				92AEDD4118B125A700630385 /* reload-512_.png in Resources */,
 				8460D00718AA33E200DAA7C2 /* sun-75.png in Resources */,
 				8460CFC018AA33E200DAA7C2 /* partly_cloudy_day-100.png in Resources */,
 				8460CFEF18AA33E200DAA7C2 /* snow-75.png in Resources */,
