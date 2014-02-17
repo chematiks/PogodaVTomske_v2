@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *landscapeView;
 @property (weak, nonatomic) IBOutlet UIView *portraitView;
+@property (weak, nonatomic) IBOutlet UIWebView *mapWeather;
 
 - (IBAction)refreshData:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *loadTimeLabel;

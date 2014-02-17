@@ -140,10 +140,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KHd-1H-wM5">
-                                        <rect key="frame" x="981" y="24" width="40" height="40"/>
+                                        <rect key="frame" x="982" y="23" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="reload-512_.png"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="reload-512_.png">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="refreshData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ioE-bc-5ST"/>
                                         </connections>
@@ -190,7 +193,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <webView contentMode="scaleToFill" id="EQx-zh-KUo">
-                                        <rect key="frame" x="2" y="523" width="506" height="243"/>
+                                        <rect key="frame" x="2" y="553" width="506" height="213"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </webView>
@@ -214,6 +217,7 @@
                         <outlet property="forecastTableView" destination="Uab-ih-vLc" id="Zmv-mV-k2R"/>
                         <outlet property="landscapeView" destination="exr-tf-aIH" id="Xej-fE-H9i"/>
                         <outlet property="loadTimeLabel" destination="89L-vc-sQ5" id="jPK-1c-ar3"/>
+                        <outlet property="mapWeather" destination="EQx-zh-KUo" id="r9I-z9-j53"/>
                         <outlet property="portraitTableView" destination="7hx-hg-m6T" id="vp2-Qn-ttr"/>
                         <outlet property="portraitView" destination="t8b-R3-P8T" id="03E-1D-Eer"/>
                     </connections>

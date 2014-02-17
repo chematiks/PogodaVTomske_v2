@@ -38,7 +38,7 @@
     _portraitTableView.dataSource = self;
     _portraitTableView.delegate = self;
     
-    [self refreshCurrentWeather];
+    [self refreshCurrentWeather];		
     [self makeOrientationInterface:[[UIApplication sharedApplication] statusBarOrientation]];
     
     _landscapeView.backgroundColor = cFon;
@@ -54,6 +54,11 @@
     _currentCloidTextLabel.textColor = cTextGrey;
     //_currentWeatherLabel.textColor = cTextGrey;
     // Do any additional setup after loading the view.
+    
+    NSURL * url = [[NSURL alloc] initWithString:@"http://earth.nullschool.net/#current/wind/surface/level/overlay=temp/orthographic=-278.83,57.57,3000"];
+    NSURLRequest * request = [[NSURLRequest alloc] initWithURL:url];
+    
+    [_mapWeather loadRequest:request];
 }
 
 
