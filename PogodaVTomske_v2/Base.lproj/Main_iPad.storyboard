@@ -193,10 +193,14 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <webView contentMode="scaleToFill" id="EQx-zh-KUo">
-                                        <rect key="frame" x="2" y="553" width="506" height="213"/>
+                                        <rect key="frame" x="2" y="539" width="506" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </webView>
+                                    <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tomsk_Region_contur3.png" id="tFZ-5o-QGf">
+                                        <rect key="frame" x="91" y="539" width="417" height="243"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -228,6 +232,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Tomsk_Region_contur3.png" width="932" height="667"/>
         <image name="reload-512_.png" width="512" height="512"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

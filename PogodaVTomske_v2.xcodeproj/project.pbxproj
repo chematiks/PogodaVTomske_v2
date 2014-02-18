@@ -16,7 +16,6 @@
 		84016C5E188D25A20070F64B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 84016C5B188D25A20070F64B /* README.md */; };
 		84016C60188D26D30070F64B /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84016C5F188D26D30070F64B /* libxml2.dylib */; };
 		84016C68188E81D70070F64B /* CLPogodaVTomskeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84016C67188E81D70070F64B /* CLPogodaVTomskeParser.m */; };
-		841D917418B2155000389B9F /* reload-512_.png in Resources */ = {isa = PBXBuildFile; fileRef = 841D917318B2155000389B9F /* reload-512_.png */; };
 		8460CEF618A9DD3C00DAA7C2 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8460CEF418A9DD3C00DAA7C2 /* Main_iPad.storyboard */; };
 		8460CF8018AA33E200DAA7C2 /* clouds-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 8460CEF818AA33E200DAA7C2 /* clouds-100.png */; };
 		8460CF8118AA33E200DAA7C2 /* clouds-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 8460CEF918AA33E200DAA7C2 /* clouds-128.png */; };
@@ -163,6 +162,9 @@
 		926C89A01876A05A00F90566 /* CLSunAndMoonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C899F1876A05A00F90566 /* CLSunAndMoonCell.m */; };
 		926C89A31876A0AB00F90566 /* CLWindAndPressureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C89A21876A0AB00F90566 /* CLWindAndPressureCell.m */; };
 		92B91881188857B9006C62BA /* UITableViewCell+getHeightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B91880188857B9006C62BA /* UITableViewCell+getHeightCell.m */; };
+		92BFAA3B18B3BFAB00B64D3F /* reload-512_.png in Resources */ = {isa = PBXBuildFile; fileRef = 92BFAA3A18B3BFAB00B64D3F /* reload-512_.png */; };
+		92BFAA3F18B3D1F000B64D3F /* Tomsk_Region_contur3.png in Resources */ = {isa = PBXBuildFile; fileRef = 92BFAA3E18B3D1F000B64D3F /* Tomsk_Region_contur3.png */; };
+		92BFAA4118B3E51F00B64D3F /* tempScale.png in Resources */ = {isa = PBXBuildFile; fileRef = 92BFAA4018B3E51F00B64D3F /* tempScale.png */; };
 		92DB1C20187464D300EB695B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92DB1C1F187464D300EB695B /* Foundation.framework */; };
 		92DB1C22187464D300EB695B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92DB1C21187464D300EB695B /* CoreGraphics.framework */; };
 		92DB1C24187464D300EB695B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92DB1C23187464D300EB695B /* UIKit.framework */; };
@@ -208,7 +210,6 @@
 		84016C62188E73A70070F64B /* keys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = keys.h; path = ../keys.h; sourceTree = "<group>"; };
 		84016C66188E81D70070F64B /* CLPogodaVTomskeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLPogodaVTomskeParser.h; path = ../CLPogodaVTomskeParser.h; sourceTree = "<group>"; };
 		84016C67188E81D70070F64B /* CLPogodaVTomskeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLPogodaVTomskeParser.m; path = ../CLPogodaVTomskeParser.m; sourceTree = "<group>"; };
-		841D917318B2155000389B9F /* reload-512_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reload-512_.png"; path = "../../../../Downloads/reload-512_.png"; sourceTree = "<group>"; };
 		8460CEF518A9DD3C00DAA7C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = PogodaVTomske_v2/Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		8460CEF818AA33E200DAA7C2 /* clouds-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clouds-100.png"; sourceTree = "<group>"; };
 		8460CEF918AA33E200DAA7C2 /* clouds-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clouds-128.png"; sourceTree = "<group>"; };
@@ -366,6 +367,9 @@
 		929F6E0B18892DC7002C999D /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		92B9187F188857B9006C62BA /* UITableViewCell+getHeightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+getHeightCell.h"; sourceTree = "<group>"; };
 		92B91880188857B9006C62BA /* UITableViewCell+getHeightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+getHeightCell.m"; sourceTree = "<group>"; };
+		92BFAA3A18B3BFAB00B64D3F /* reload-512_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload-512_.png"; sourceTree = "<group>"; };
+		92BFAA3E18B3D1F000B64D3F /* Tomsk_Region_contur3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tomsk_Region_contur3.png; sourceTree = "<group>"; };
+		92BFAA4018B3E51F00B64D3F /* tempScale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tempScale.png; sourceTree = "<group>"; };
 		92DB1C1C187464D300EB695B /* PogodaVTomske_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PogodaVTomske_v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DB1C1F187464D300EB695B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		92DB1C21187464D300EB695B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -438,6 +442,8 @@
 		84016C3E188CD7EB0070F64B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				92BFAA4018B3E51F00B64D3F /* tempScale.png */,
+				92BFAA3E18B3D1F000B64D3F /* Tomsk_Region_contur3.png */,
 				92DB1C37187464D300EB695B /* CLViewController.h */,
 				92DB1C38187464D300EB695B /* CLViewController.m */,
 				8460D00B18AB6A2100DAA7C2 /* CLIpadViewController.h */,
@@ -476,7 +482,7 @@
 		8460CEF718AA33E200DAA7C2 /* weather */ = {
 			isa = PBXGroup;
 			children = (
-				841D917318B2155000389B9F /* reload-512_.png */,
+				92BFAA3A18B3BFAB00B64D3F /* reload-512_.png */,
 				8460CEF818AA33E200DAA7C2 /* clouds-100.png */,
 				8460CEF918AA33E200DAA7C2 /* clouds-128.png */,
 				8460CEFA18AA33E200DAA7C2 /* clouds-25.png */,
@@ -840,6 +846,7 @@
 				8460CF9718AA33E200DAA7C2 /* fog_day-75.png in Resources */,
 				8460CFE018AA33E200DAA7C2 /* sleet-100.png in Resources */,
 				8460CFD418AA33E200DAA7C2 /* partly_cloudy_rain-32.png in Resources */,
+				92BFAA3B18B3BFAB00B64D3F /* reload-512_.png in Resources */,
 				8460CF8D18AA33E200DAA7C2 /* downpour-50.png in Resources */,
 				8460CFE318AA33E200DAA7C2 /* sleet-256.png in Resources */,
 				8460CFC618AA33E200DAA7C2 /* partly_cloudy_day-512_.png in Resources */,
@@ -877,6 +884,7 @@
 				8460CF9B18AA33E200DAA7C2 /* fog_night-256.png in Resources */,
 				8460CFD318AA33E200DAA7C2 /* partly_cloudy_rain-256.png in Resources */,
 				8460CFAE18AA33E200DAA7C2 /* little_rain-512_.png in Resources */,
+				92BFAA4118B3E51F00B64D3F /* tempScale.png in Resources */,
 				8460CFFA18AA33E200DAA7C2 /* storm-25.png in Resources */,
 				8460CFB818AA33E200DAA7C2 /* moon-100.png in Resources */,
 				8460CFFB18AA33E200DAA7C2 /* storm-256.png in Resources */,
@@ -887,7 +895,6 @@
 				8460CF9618AA33E200DAA7C2 /* fog_day-512_.png in Resources */,
 				8460CFE418AA33E200DAA7C2 /* sleet-32.png in Resources */,
 				8460CFDA18AA33E200DAA7C2 /* rain-25.png in Resources */,
-				841D917418B2155000389B9F /* reload-512_.png in Resources */,
 				8460D00718AA33E200DAA7C2 /* sun-75.png in Resources */,
 				8460CFC018AA33E200DAA7C2 /* partly_cloudy_day-100.png in Resources */,
 				8460CFEF18AA33E200DAA7C2 /* snow-75.png in Resources */,
@@ -909,6 +916,7 @@
 				8460CF8618AA33E200DAA7C2 /* clouds-512_.png in Resources */,
 				8460CF8E18AA33E200DAA7C2 /* downpour-512_.png in Resources */,
 				8460D00118AA33E200DAA7C2 /* sun-128.png in Resources */,
+				92BFAA3F18B3D1F000B64D3F /* Tomsk_Region_contur3.png in Resources */,
 				8460CFD218AA33E200DAA7C2 /* partly_cloudy_rain-25.png in Resources */,
 				8460CFA718AA33E200DAA7C2 /* hail-75.png in Resources */,
 				8460CFA918AA33E200DAA7C2 /* little_rain-128.png in Resources */,

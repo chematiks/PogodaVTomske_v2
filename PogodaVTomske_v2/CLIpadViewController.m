@@ -55,7 +55,7 @@
     //_currentWeatherLabel.textColor = cTextGrey;
     // Do any additional setup after loading the view.
     
-    NSURL * url = [[NSURL alloc] initWithString:@"http://earth.nullschool.net/#current/wind/surface/level/overlay=temp/orthographic=-278.83,57.57,3000"];
+    NSURL * url = [[NSURL alloc] initWithString:@"http://earth.nullschool.net/#current/wind/surface/level/orthographic=-279.40,57.50,3000"];
     NSURLRequest * request = [[NSURLRequest alloc] initWithURL:url];
     
     [_mapWeather loadRequest:request];
