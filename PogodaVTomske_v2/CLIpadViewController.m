@@ -59,6 +59,9 @@
     NSURLRequest * request = [[NSURLRequest alloc] initWithURL:url];
     
     [_mapWeather loadRequest:request];
+    
+    _first = YES;
+    _speed = 0.5;
 }
 
 
@@ -244,6 +247,83 @@
     if (numberDay==0) return @"Суббота";
     if (numberDay==1) return @"Воскресение";
     return @"";
+}
+
+#pragma mark
+#pragma mark Animation Vent
+
+- (void)clockwiseRotationStopped:(NSString *)paramAnimationID
+                        finished:(NSNumber *)paramFinished
+                         context:(void *)paramContext{
+    
+    [UIView beginAnimations:@"counterclockwiseAnimation"
+                    context:NULL];
+    
+    // 5 seconds long
+    [UIView setAnimationDuration:_speed];
+    
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    [UIView setAnimationDelegate:self];
+    // Back to original rotation
+    [UIView setAnimationDidStopSelector:@selector(clockwiseRotationStopped2:finished:context:)];
+    _ventImage.transform = CGAffineTransformMakeRotation((240 * M_PI)/180);
+    
+    [UIView commitAnimations];
+}
+
+- (void)clockwiseRotationStopped2:(NSString *)paramAnimationID
+                         finished:(NSNumber *)paramFinished
+                          context:(void *)paramContext{
+    
+    [UIView beginAnimations:@"counterclockwiseAnimation2" context:NULL];
+    
+    // 5 seconds long
+    [UIView setAnimationDuration:_speed];
+    [UIView setAnimationDelegate:self];
+    
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    // Back to original rotation
+    
+    [UIView setAnimationDidStopSelector:@selector(animationRotate)];
+    _ventImage.transform = CGAffineTransformMakeRotation((360 * M_PI)/180);
+    
+    [UIView commitAnimations];
+}
+
+
+
+- (void) viewDidAppear:(BOOL)paramAnimated{
+    [super viewDidAppear:paramAnimated];
+    
+    [self animationRotate];
+    
+}
+-(void) animationRotate
+{
+    // Begin the animation
+    [UIView beginAnimations:@"clockwiseAnimation"
+                    context:NULL];
+    
+    // Make the animation 5 seconds long
+    [UIView setAnimationDuration:_speed];
+    
+    if (_first){
+        [UIView setAnimationCurve: UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDuration:_speed * 2];
+        _first = NO;
+    }
+    else
+        [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    [UIView setAnimationDelegate:self];
+    
+    [UIView setAnimationDidStopSelector: @selector(clockwiseRotationStopped:finished:context:)];
+    
+    // Rotate the image view 90 degrees 
+    _ventImage.transform = CGAffineTransformMakeRotation((120.0f * M_PI) / 180.0f);
+
+    // Commit the animation
+    [UIView commitAnimations];
+    
 }
 
 @end

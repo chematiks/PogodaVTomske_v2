@@ -155,6 +155,13 @@
 		8460D00718AA33E200DAA7C2 /* sun-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 8460CF7F18AA33E200DAA7C2 /* sun-75.png */; };
 		8460D00D18AB6A2100DAA7C2 /* CLIpadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8460D00C18AB6A2100DAA7C2 /* CLIpadViewController.m */; };
 		8460D01018AB84CE00DAA7C2 /* CLiPadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8460D00F18AB84CE00DAA7C2 /* CLiPadTableViewCell.m */; };
+		849C950D18B5BC5400CC094F /* Xcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 849C950C18B5BC5400CC094F /* Xcode.png */; };
+		849C950F18B5BC6500CC094F /* vent.png in Resources */ = {isa = PBXBuildFile; fileRef = 849C950E18B5BC6500CC094F /* vent.png */; };
+		849C951118B5D19C00CC094F /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 849C951018B5D19C00CC094F /* logo.png */; };
+		849C951418B5F32700CC094F /* logo152_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 849C951318B5F32700CC094F /* logo152_2.png */; };
+		849C951618B5F3AA00CC094F /* logo152_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 849C951518B5F3AA00CC094F /* logo152_3.png */; };
+		849C951918B5FA6E00CC094F /* logo76.png in Resources */ = {isa = PBXBuildFile; fileRef = 849C951718B5FA6E00CC094F /* logo76.png */; };
+		849C951A18B5FA6E00CC094F /* logo120.png in Resources */ = {isa = PBXBuildFile; fileRef = 849C951818B5FA6E00CC094F /* logo120.png */; };
 		926C898E18769ACD00F90566 /* CLMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C898D18769ACD00F90566 /* CLMainViewCell.m */; };
 		926C899718769FC500F90566 /* CLDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C899618769FC500F90566 /* CLDetailsCell.m */; };
 		926C899A1876A02000F90566 /* CLForecastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C89991876A02000F90566 /* CLForecastCell.m */; };
@@ -352,6 +359,14 @@
 		8460D00E18AB84CE00DAA7C2 /* CLiPadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLiPadTableViewCell.h; sourceTree = "<group>"; };
 		8460D00F18AB84CE00DAA7C2 /* CLiPadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLiPadTableViewCell.m; sourceTree = "<group>"; };
 		8460D01218ACD2A300DAA7C2 /* interfaceColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = interfaceColor.h; sourceTree = "<group>"; };
+		849C950C18B5BC5400CC094F /* Xcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Xcode.png; path = "../../../Downloads/Animating and Rotating Views/Animating and Rotating Views/Xcode.png"; sourceTree = "<group>"; };
+		849C950E18B5BC6500CC094F /* vent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = vent.png; path = "../../../Downloads/Animating and Rotating Views/Animating and Rotating Views/vent.png"; sourceTree = "<group>"; };
+		849C951018B5D19C00CC094F /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../Downloads/logo.png; sourceTree = "<group>"; };
+		849C951218B5F0A500CC094F /* logo152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo152.png; path = ../../Downloads/logo152.png; sourceTree = "<group>"; };
+		849C951318B5F32700CC094F /* logo152_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo152_2.png; path = ../../../Downloads/logo152_2.png; sourceTree = "<group>"; };
+		849C951518B5F3AA00CC094F /* logo152_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo152_3.png; path = ../../../Downloads/logo152_3.png; sourceTree = "<group>"; };
+		849C951718B5FA6E00CC094F /* logo76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo76.png; path = ../../../Downloads/logo76.png; sourceTree = "<group>"; };
+		849C951818B5FA6E00CC094F /* logo120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo120.png; path = ../../../Downloads/logo120.png; sourceTree = "<group>"; };
 		926C898C18769ACD00F90566 /* CLMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLMainViewCell.h; path = Cells/CLMainViewCell.h; sourceTree = "<group>"; };
 		926C898D18769ACD00F90566 /* CLMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLMainViewCell.m; path = Cells/CLMainViewCell.m; sourceTree = "<group>"; };
 		926C899518769FC500F90566 /* CLDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLDetailsCell.h; path = Cells/CLDetailsCell.h; sourceTree = "<group>"; };
@@ -442,6 +457,13 @@
 		84016C3E188CD7EB0070F64B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				849C951718B5FA6E00CC094F /* logo76.png */,
+				849C951818B5FA6E00CC094F /* logo120.png */,
+				849C951518B5F3AA00CC094F /* logo152_3.png */,
+				849C951318B5F32700CC094F /* logo152_2.png */,
+				849C951018B5D19C00CC094F /* logo.png */,
+				849C950C18B5BC5400CC094F /* Xcode.png */,
+				849C950E18B5BC6500CC094F /* vent.png */,
 				92BFAA4018B3E51F00B64D3F /* tempScale.png */,
 				92BFAA3E18B3D1F000B64D3F /* Tomsk_Region_contur3.png */,
 				92DB1C37187464D300EB695B /* CLViewController.h */,
@@ -649,6 +671,7 @@
 		92DB1C13187464D300EB695B = {
 			isa = PBXGroup;
 			children = (
+				849C951218B5F0A500CC094F /* logo152.png */,
 				92DB1C25187464D300EB695B /* PogodaVTomske_v2 */,
 				92DB1C47187464D300EB695B /* PogodaVTomske_v2Tests */,
 				92DB1C1E187464D300EB695B /* Frameworks */,
@@ -838,6 +861,7 @@
 				8460CFCB18AA33E200DAA7C2 /* partly_cloudy_night-256.png in Resources */,
 				8460CF8518AA33E200DAA7C2 /* clouds-50.png in Resources */,
 				8460CFFE18AA33E200DAA7C2 /* storm-512_.png in Resources */,
+				849C950F18B5BC6500CC094F /* vent.png in Resources */,
 				8460CF9418AA33E200DAA7C2 /* fog_day-32.png in Resources */,
 				8460CF9218AA33E200DAA7C2 /* fog_day-25.png in Resources */,
 				8460CF9F18AA33E200DAA7C2 /* fog_night-75.png in Resources */,
@@ -900,7 +924,9 @@
 				8460CFEF18AA33E200DAA7C2 /* snow-75.png in Resources */,
 				8460D00218AA33E200DAA7C2 /* sun-25.png in Resources */,
 				8460CFD718AA33E200DAA7C2 /* partly_cloudy_rain-75.png in Resources */,
+				849C951118B5D19C00CC094F /* logo.png in Resources */,
 				8460CFBF18AA33E200DAA7C2 /* moon-75.png in Resources */,
+				849C951A18B5FA6E00CC094F /* logo120.png in Resources */,
 				8460CFEB18AA33E200DAA7C2 /* snow-256.png in Resources */,
 				8460CFA218AA33E200DAA7C2 /* hail-25.png in Resources */,
 				8460CFD618AA33E200DAA7C2 /* partly_cloudy_rain-512_.png in Resources */,
@@ -911,6 +937,7 @@
 				8460CF9C18AA33E200DAA7C2 /* fog_night-32.png in Resources */,
 				8460CF8018AA33E200DAA7C2 /* clouds-100.png in Resources */,
 				8460D00018AA33E200DAA7C2 /* sun-100.png in Resources */,
+				849C951918B5FA6E00CC094F /* logo76.png in Resources */,
 				8460CF8318AA33E200DAA7C2 /* clouds-256.png in Resources */,
 				8460CF9D18AA33E200DAA7C2 /* fog_night-50.png in Resources */,
 				8460CF8618AA33E200DAA7C2 /* clouds-512_.png in Resources */,
@@ -920,16 +947,19 @@
 				8460CFD218AA33E200DAA7C2 /* partly_cloudy_rain-25.png in Resources */,
 				8460CFA718AA33E200DAA7C2 /* hail-75.png in Resources */,
 				8460CFA918AA33E200DAA7C2 /* little_rain-128.png in Resources */,
+				849C950D18B5BC5400CC094F /* Xcode.png in Resources */,
 				8460CFEE18AA33E200DAA7C2 /* snow-512_.png in Resources */,
 				8460CF9818AA33E200DAA7C2 /* fog_night-100.png in Resources */,
 				8460CFD818AA33E200DAA7C2 /* rain-100.png in Resources */,
 				8460CFC518AA33E200DAA7C2 /* partly_cloudy_day-50.png in Resources */,
 				8460CFAB18AA33E200DAA7C2 /* little_rain-256.png in Resources */,
+				849C951418B5F32700CC094F /* logo152_2.png in Resources */,
 				8460CFE118AA33E200DAA7C2 /* sleet-128.png in Resources */,
 				8460CFF318AA33E200DAA7C2 /* snow_storm-256.png in Resources */,
 				8460CFD118AA33E200DAA7C2 /* partly_cloudy_rain-128.png in Resources */,
 				8460CFA418AA33E200DAA7C2 /* hail-32.png in Resources */,
 				8460D00318AA33E200DAA7C2 /* sun-256.png in Resources */,
+				849C951618B5F3AA00CC094F /* logo152_3.png in Resources */,
 				92DB1C33187464D300EB695B /* Main_iPhone.storyboard in Resources */,
 				8460CF8218AA33E200DAA7C2 /* clouds-25.png in Resources */,
 				8460CFA618AA33E200DAA7C2 /* hail-512_.png in Resources */,
@@ -1123,7 +1153,6 @@
 		92DB1C52187464D300EB695B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1147,7 +1176,6 @@
 		92DB1C53187464D300EB695B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

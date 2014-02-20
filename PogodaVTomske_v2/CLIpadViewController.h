@@ -40,4 +40,10 @@
 
 @property (nonatomic, strong) NSArray * forecastOn10Day;
 
+
+@property (weak, nonatomic) IBOutlet UIImageView *ventImage;
+@property (nonatomic) float speed;
+@property (nonatomic) BOOL first;
+
+
 @end
