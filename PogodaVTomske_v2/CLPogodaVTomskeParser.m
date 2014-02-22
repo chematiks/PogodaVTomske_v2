@@ -63,7 +63,7 @@
     
     NSArray * array=[currentHTML2 findChildTags:@"tr"];
     
-    
+  
     currentWeather = [self getCurrentTemp:array[0] in:currentWeather];
     
     currentWeather = [self getSunAndMoonInfo:array[1] in:currentWeather];
@@ -117,9 +117,11 @@
             weather.currentSpeedWind = [currentSpeedWind floatValue];
             range.length=0;
             
-            NSString * currentWindDirection = [currentSpeedWind substringFromIndex:10];
-            currentWindDirection = [self removeTrashSpaceInString:currentWindDirection];
-            weather.currentWindDirection = currentWindDirection;
+            if (currentSpeedWind.length > 10) {
+                NSString * currentWindDirection = [currentSpeedWind substringFromIndex:10];
+                currentWindDirection = [self removeTrashSpaceInString:currentWindDirection];
+                weather.currentWindDirection = currentWindDirection;
+            }
             range.length = 0;
         }
         

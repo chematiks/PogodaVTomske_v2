@@ -147,11 +147,37 @@
                                         <rect key="frame" x="91" y="539" width="417" height="243"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vent.png" id="WK7-gi-yMq">
-                                        <rect key="frame" x="132" y="352" width="112" height="105"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="windVetryak1_100white.png" id="WK7-gi-yMq">
+                                        <rect key="frame" x="305" y="395" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="windStolb.png" id="NOS-mG-9lc">
+                                        <rect key="frame" x="318" y="419" width="25" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waterColbNone.png" id="17k-QQ-TET">
+                                        <rect key="frame" x="438" y="350" width="25" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waterColbFull2.png" id="ann-RO-rIw">
+                                        <rect key="frame" x="438" y="350" width="25" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kIE-RH-yOF">
+                                        <rect key="frame" x="403" y="460" width="95" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IsX-kO-gPo">
+                                        <rect key="frame" x="379" y="410" width="85" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -223,7 +249,10 @@
                         <outlet property="currentWeatherLabel" destination="Nqd-aN-YgH" id="Ehi-cS-ziS"/>
                         <outlet property="currentWeatherView" destination="gz6-mL-qss" id="VLB-vm-sox"/>
                         <outlet property="currentWeatherViewFon" destination="H4p-fe-okc" id="PL7-M1-OEf"/>
+                        <outlet property="currentWindSpeedLabel" destination="IsX-kO-gPo" id="xNJ-P1-eS0"/>
                         <outlet property="forecastTableView" destination="Uab-ih-vLc" id="Zmv-mV-k2R"/>
+                        <outlet property="humidityImage" destination="ann-RO-rIw" id="wIR-Hj-Glh"/>
+                        <outlet property="humidityLabel" destination="kIE-RH-yOF" id="Imk-TG-ZPZ"/>
                         <outlet property="landscapeView" destination="exr-tf-aIH" id="Xej-fE-H9i"/>
                         <outlet property="loadTimeLabel" destination="89L-vc-sQ5" id="jPK-1c-ar3"/>
                         <outlet property="mapWeather" destination="EQx-zh-KUo" id="r9I-z9-j53"/>
@@ -240,7 +269,10 @@
     <resources>
         <image name="Tomsk_Region_contur3.png" width="932" height="667"/>
         <image name="reload-512_.png" width="512" height="512"/>
-        <image name="vent.png" width="100" height="100"/>
+        <image name="waterColbFull2.png" width="25" height="100"/>
+        <image name="waterColbNone.png" width="100" height="400"/>
+        <image name="windStolb.png" width="100" height="400"/>
+        <image name="windVetryak1_100white.png" width="100" height="100"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>

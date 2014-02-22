@@ -17,6 +17,7 @@
 - (IBAction)refreshData:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *loadTimeLabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *humidityImage;
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentTempLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentCloidTextLabel;

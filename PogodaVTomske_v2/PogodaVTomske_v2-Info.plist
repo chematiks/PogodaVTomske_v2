@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string> Погода</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIcons</key>
@@ -24,6 +24,10 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>icon2_152</string>
+				<string>icon2N_152</string>
+				<string>iconN152</string>
+				<string>icon152</string>
 				<string>logo76</string>
 				<string>logo120</string>
 				<string>logo152_3</string>

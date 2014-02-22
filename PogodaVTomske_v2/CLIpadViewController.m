@@ -32,6 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _first = YES;
+    _speed = 10;
     
     _forecastTableView.delegate = self;
     _forecastTableView.dataSource = self;
@@ -52,7 +54,9 @@
     _currentWeatherViewFon.backgroundColor = cFon;
     _currentTempLabel.textColor = cTextYellow;
     _currentCloidTextLabel.textColor = cTextGrey;
-    //_currentWeatherLabel.textColor = cTextGrey;
+    
+    _currentWindSpeedLabel.textColor = cTextGrey;
+    _humidityLabel.textColor = cTextGrey;
     // Do any additional setup after loading the view.
     
     NSURL * url = [[NSURL alloc] initWithString:@"http://earth.nullschool.net/#current/wind/surface/level/orthographic=-279.40,57.50,3000"];
@@ -60,8 +64,7 @@
     
     [_mapWeather loadRequest:request];
     
-    _first = YES;
-    _speed = 0.5;
+
 }
 
 
@@ -105,6 +108,28 @@
     _sunriseLabel.text = [weather objectForKey:kSunrire];
     _sunsetLabel.text = [weather objectForKey:kSunset];
     _magneticStormsLabel.text = [weather objectForKey:kMagneticStorms];
+    
+    
+    float humidity = [[weather objectForKey:kHumidity] floatValue];
+    _humidityLabel.text = [NSString stringWithFormat:@"%f",humidity];
+    
+    CGRect rect = _humidityImage.frame;
+    rect.size.height = (rect.size.height/100) * humidity;
+    rect.origin.y = rect.origin.y + (100 - rect.size.height);
+    _humidityImage.frame = rect;
+    
+    
+    float currentWindSpeed = [[weather objectForKey:kWindSpeed] floatValue];
+    
+    if (currentWindSpeed == 0) {
+        _speed = 0;
+    }
+    else{
+        _speed = 3 / [[weather objectForKey:kWindSpeed] floatValue];
+    }
+
+    _currentWindSpeedLabel.text = [NSString stringWithFormat:@"%.0f м/с",currentWindSpeed];
+    [self animationRotate];
     
     NSURL * url;
     if (![[weather objectForKey:kCity] isEqualToString:@"tomsk"])
@@ -214,7 +239,6 @@
 
 -(CLiPadTableViewCell *) configureCell:(CLiPadTableViewCell *)cell WithData:(CLForecastOnDay *) forecast
 {
-    
     cell.dayForecast.text = [[NSString stringWithFormat:@"%.0f",forecast.maxTemp] stringByAppendingString:@"°"];
     if (forecast.minTemp < kNoForecast)
         cell.nigthForecast.text = [[NSString stringWithFormat:@"%.0f",forecast.minTemp] stringByAppendingString:@"°"];
@@ -261,7 +285,6 @@
     
     // 5 seconds long
     [UIView setAnimationDuration:_speed];
-    
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationDelegate:self];
     // Back to original rotation
@@ -280,7 +303,6 @@
     // 5 seconds long
     [UIView setAnimationDuration:_speed];
     [UIView setAnimationDelegate:self];
-    
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     // Back to original rotation
     
@@ -295,7 +317,7 @@
 - (void) viewDidAppear:(BOOL)paramAnimated{
     [super viewDidAppear:paramAnimated];
     
-    [self animationRotate];
+   // [self animationRotate];
     
 }
 -(void) animationRotate
@@ -306,7 +328,6 @@
     
     // Make the animation 5 seconds long
     [UIView setAnimationDuration:_speed];
-    
     if (_first){
         [UIView setAnimationCurve: UIViewAnimationCurveEaseIn];
         [UIView setAnimationDuration:_speed * 2];
@@ -315,7 +336,7 @@
     else
         [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationDelegate:self];
-    
+
     [UIView setAnimationDidStopSelector: @selector(clockwiseRotationStopped:finished:context:)];
     
     // Rotate the image view 90 degrees 

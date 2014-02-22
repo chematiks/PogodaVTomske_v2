@@ -22,21 +22,29 @@
     
     currentWeather.forecastFor10Days = [parser getForecastForCity:city];
     
-    NSDictionary * weather=[[NSDictionary alloc] initWithObjectsAndKeys:
-                            currentWeather.currentWindDirection, kWindDirection,
-                            [NSNumber numberWithFloat:currentWeather.currentTemp], kCurrentTemp,
-                            [NSNumber numberWithFloat:currentWeather.currentSpeedWind], kWindSpeed,
-                            currentWeather.currentCloudText, kCurrentCloudingText,
-                            currentWeather.currentCloudImg, kCurrentCloudingImage,
-                            currentWeather.moonImage, kMoonImage,
-                            currentWeather.magneticStorms, kMagneticStorms,
-                            currentWeather.timeSunrise, kSunrire,
-                            currentWeather.timeSunSet, kSunset,
-                            [NSNumber numberWithFloat:currentWeather.humidityAir], kHumidity,
-                            [NSNumber numberWithFloat:currentWeather.currentPressure], kPressure,
-                            city, kCity,
-                            currentWeather.forecastFor10Days, kForecast,
-                            currentWeather.timeLoadWeather, kTimeLoad , nil];
+   
+    NSMutableDictionary * weather = [[NSMutableDictionary alloc] init];
+    
+    [weather setObject:currentWeather.forecastFor10Days forKey:kForecast];
+    if (currentWeather.currentWindDirection) {
+        [weather setObject:currentWeather.currentWindDirection forKey:kWindDirection];
+    }
+    [weather setObject:[NSNumber numberWithFloat:currentWeather.currentTemp] forKey:kCurrentTemp];
+    [weather setObject:[NSNumber numberWithFloat:currentWeather.currentSpeedWind] forKey:kWindSpeed];
+    [weather setObject:currentWeather.currentCloudText forKey:kCurrentCloudingText];
+    [weather setObject:currentWeather.currentCloudImg forKey:kCurrentCloudingImage];
+    [weather setObject:currentWeather.moonImage forKey:kMoonImage];
+    [weather setObject:currentWeather.magneticStorms forKey:kMagneticStorms];
+    [weather setObject:currentWeather.timeSunrise forKey:kSunrire];
+    [weather setObject:currentWeather.timeSunSet forKey:kSunset];
+    [weather setObject:[NSNumber numberWithFloat:currentWeather.humidityAir] forKey:kHumidity];
+    [weather setObject:[NSNumber numberWithFloat:currentWeather.currentPressure] forKey:kPressure];
+    [weather setObject:city forKey:kCity];
+    [weather setObject:currentWeather.timeLoadWeather forKey:kTimeLoad];
+    
+    
+    
+    
     
     return weather;
 }
