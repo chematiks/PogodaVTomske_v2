@@ -16,7 +16,10 @@
 
 - (IBAction)refreshData:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *loadTimeLabel;
+@property (weak, nonatomic) IBOutlet UIView *mapView;
+@property (weak, nonatomic) IBOutlet UIImageView *detailWeatherFon;
 
+@property (weak, nonatomic) IBOutlet UIView *detailWeatherView;
 @property (weak, nonatomic) IBOutlet UIImageView *humidityImage;
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentTempLabel;
@@ -43,8 +46,9 @@
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *ventImage;
-@property (nonatomic) float speed;
+@property (nonatomic) float speedWind;
 @property (nonatomic) BOOL first;
+@property (nonatomic) float humidityHeigth;
 
 
 @end

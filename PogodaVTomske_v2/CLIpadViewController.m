@@ -33,7 +33,8 @@
 {
     [super viewDidLoad];
     _first = YES;
-    _speed = 10;
+    _speedWind = 10;
+    _humidityHeigth = _humidityImage.frame.size.height;
     
     _forecastTableView.delegate = self;
     _forecastTableView.dataSource = self;
@@ -51,9 +52,13 @@
     _conturForecastTable.backgroundColor = cContur;
     
     _currentWeatherView.backgroundColor = cContur;
-    _currentWeatherViewFon.backgroundColor = cFon;
+    _currentWeatherViewFon.backgroundColor = cBackground;
     _currentTempLabel.textColor = cTextYellow;
     _currentCloidTextLabel.textColor = cTextGrey;
+    
+    _detailWeatherView.backgroundColor = cContur;
+    _detailWeatherFon.backgroundColor = cFon;
+    _mapView.backgroundColor = cContur;
     
     _currentWindSpeedLabel.textColor = cTextGrey;
     _humidityLabel.textColor = cTextGrey;
@@ -111,26 +116,22 @@
     
     
     float humidity = [[weather objectForKey:kHumidity] floatValue];
-    _humidityLabel.text = [NSString stringWithFormat:@"%f",humidity];
-    
-    CGRect rect = _humidityImage.frame;
-    rect.size.height = (rect.size.height/100) * humidity;
-    rect.origin.y = rect.origin.y + (100 - rect.size.height);
-    _humidityImage.frame = rect;
-    
+    _humidityLabel.text = [NSString stringWithFormat:@"%.0f%%",humidity];
+    [self showHumidity:humidity];    
     
     float currentWindSpeed = [[weather objectForKey:kWindSpeed] floatValue];
     
     if (currentWindSpeed == 0) {
-        _speed = 0;
+        _speedWind = 0;
     }
     else{
-        _speed = 3 / [[weather objectForKey:kWindSpeed] floatValue];
+        _speedWind = 3 / [[weather objectForKey:kWindSpeed] floatValue];
     }
 
     _currentWindSpeedLabel.text = [NSString stringWithFormat:@"%.0f м/с",currentWindSpeed];
-    [self animationRotate];
-    
+    if (_first) {
+        [self animationRotate];
+    }
     NSURL * url;
     if (![[weather objectForKey:kCity] isEqualToString:@"tomsk"])
         url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@%@",
@@ -151,6 +152,18 @@
     UIImage * moonImage = [[UIImage alloc] initWithData:imageData];
     _moonImage.image = moonImage;
     
+}
+
+-(void) showHumidity: (float) humidity
+{
+    CGRect rect = _humidityImage.frame;
+    
+    rect.origin.y = rect.origin.y + rect.size.height - _humidityHeigth;
+    rect.size.height = _humidityHeigth;
+    rect.size.height = (rect.size.height/_humidityHeigth) * humidity;
+    rect.origin.y = rect.origin.y + (_humidityHeigth - rect.size.height);
+    _humidityImage.frame = rect;
+
 }
 
 -(UIImage *) getCloudImage:(NSString *) clouding
@@ -197,8 +210,10 @@
 -(void) refreshCurrentWeather
 {
     NSDictionary * weather = [[CLWeatherAPI sharedWeather] getCurrentWeather:@"tomsk"];
+    
     [self configurateIpad:weather];
     _forecastOn10Day = [weather objectForKey:kForecast];
+    
     [_forecastTableView reloadData];
 }
 
@@ -254,7 +269,6 @@
     switch (index) {
         case 0: return @"Сегодня";
         case 1: return @"Завтра";
-        //case 2: return @"Послезавтра";
         default: break;
     }
     NSDate * date = [NSDate date];
@@ -284,12 +298,12 @@
                     context:NULL];
     
     // 5 seconds long
-    [UIView setAnimationDuration:_speed];
+    [UIView setAnimationDuration:_speedWind];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationDelegate:self];
     // Back to original rotation
     [UIView setAnimationDidStopSelector:@selector(clockwiseRotationStopped2:finished:context:)];
-    _ventImage.transform = CGAffineTransformMakeRotation((240 * M_PI)/180);
+    _ventImage.transform = CGAffineTransformMakeRotation((120 * M_PI)/180);
     
     [UIView commitAnimations];
 }
@@ -301,36 +315,45 @@
     [UIView beginAnimations:@"counterclockwiseAnimation2" context:NULL];
     
     // 5 seconds long
-    [UIView setAnimationDuration:_speed];
+    [UIView setAnimationDuration:_speedWind];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     // Back to original rotation
     
-    [UIView setAnimationDidStopSelector:@selector(animationRotate)];
+    [UIView setAnimationDidStopSelector:@selector(clockwiseRotationStopped3:finished:context:)];
+    _ventImage.transform = CGAffineTransformMakeRotation((240 * M_PI)/180);
+    
+    [UIView commitAnimations];
+}
+
+- (void)clockwiseRotationStopped3:(NSString *)paramAnimationID
+                         finished:(NSNumber *)paramFinished
+                          context:(void *)paramContext{
+    
+    [UIView beginAnimations:@"counterclockwiseAnimation3" context:NULL];
+    
+    // 5 seconds long
+    [UIView setAnimationDuration:_speedWind];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    // Back to original rotation
+    
+    [UIView setAnimationDidStopSelector:@selector(clockwiseRotationStopped:finished:context:)];
     _ventImage.transform = CGAffineTransformMakeRotation((360 * M_PI)/180);
     
     [UIView commitAnimations];
 }
 
-
-
-- (void) viewDidAppear:(BOOL)paramAnimated{
-    [super viewDidAppear:paramAnimated];
-    
-   // [self animationRotate];
-    
-}
 -(void) animationRotate
 {
     // Begin the animation
     [UIView beginAnimations:@"clockwiseAnimation"
                     context:NULL];
     
-    // Make the animation 5 seconds long
-    [UIView setAnimationDuration:_speed];
+    [UIView setAnimationDuration:_speedWind];
     if (_first){
         [UIView setAnimationCurve: UIViewAnimationCurveEaseIn];
-        [UIView setAnimationDuration:_speed * 2];
+        [UIView setAnimationDuration:_speedWind * 2];
         _first = NO;
     }
     else
@@ -339,7 +362,6 @@
 
     [UIView setAnimationDidStopSelector: @selector(clockwiseRotationStopped:finished:context:)];
     
-    // Rotate the image view 90 degrees 
     _ventImage.transform = CGAffineTransformMakeRotation((120.0f * M_PI) / 180.0f);
 
     // Commit the animation
